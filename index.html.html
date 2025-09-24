@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>📘 Pendidikan Pancasila X | SMAN 1 Bangorejo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
       --merah: #c91a3c;
@@ -43,7 +44,6 @@
       transition: background 0.4s, color 0.4s;
     }
 
-    /* Dark mode toggle button */
     #darkModeToggle {
       position: fixed;
       top: 20px;
@@ -68,7 +68,7 @@
       background: linear-gradient(135deg, var(--merah), #e63946);
       color: white;
       text-align: center;
-      padding: 70px 20px;
+      padding: 60px 20px 40px;
       position: relative;
       overflow: hidden;
     }
@@ -87,18 +87,30 @@
       bottom: -80px; left: -60px; width: 250px; height: 250px;
     }
 
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
     .hero img {
-      height: 110px;
+      height: 90px;
       margin-bottom: 20px;
       border-radius: 16px;
       background: rgba(255,255,255,0.2);
-      padding: 10px;
+      padding: 8px;
+    }
+
+    .lottie-pancasila {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
     }
 
     .hero h1 {
-      font-size: 2.6em;
+      font-size: 2.4em;
       font-weight: 800;
-      max-width: 800px;
       margin: 0 auto 16px;
       text-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
@@ -106,13 +118,41 @@
     .hero p {
       font-size: 1.2em;
       opacity: 0.95;
-      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    /* Search Box */
+    .search-box {
+      max-width: 600px;
       margin: 0 auto;
+      background: rgba(255,255,255,0.95);
+      padding: 8px;
+      border-radius: 50px;
+      display: flex;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 50px 0 0 50px;
+      outline: none;
+    }
+
+    .search-box button {
+      background: var(--merah-gelap);
+      color: white;
+      border: none;
+      padding: 0 24px;
+      border-radius: 0 50px 50px 0;
+      cursor: pointer;
+      font-weight: 600;
     }
 
     .container {
       max-width: 1200px;
-      margin: -60px auto 0;
+      margin: -30px auto 0;
       padding: 0 20px;
       position: relative;
       z-index: 2;
@@ -244,28 +284,47 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.0em; }
       iframe { min-height: 350px; }
-      .container { margin-top: -40px; }
+      .container { margin-top: -20px; }
+      .lottie-pancasila { width: 100px; height: 100px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Dark Mode Toggle -->
   <button id="darkModeToggle" aria-label="Toggle dark mode">
     <i class="fas fa-moon"></i>
   </button>
 
-  <!-- Hero Section -->
   <div class="hero">
-    <a href="https://ibb.co.com/wZzKGnDX" target="_blank" rel="noopener">
-      <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
-    </a>
-    <h1>Pendidikan Pancasila – Kelas X</h1>
-    <p>Menjiwai Nilai-Nilai Konstitusi dalam Kehidupan Berbangsa dan Bernegara</p>
+    <div class="hero-content">
+      <a href="https://ibb.co.com/wZzKGnDX" target="_blank" rel="noopener">
+        <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
+      </a>
+
+      <!-- Animasi Lottie Pancasila -->
+      <lottie-player 
+        src="https://lottie.host/0f8b8e5f-7f9e-4e4a-9d1a-2c5c4e4d5f6a/5XqYQqV1Jd.json" 
+        background="transparent" 
+        speed="1" 
+        style="width: 120px; height: 120px; margin: 0 auto 20px;"
+        loop 
+        autoplay>
+      </lottie-player>
+
+      <h1>Pendidikan Pancasila – Kelas X</h1>
+      <p>Menjiwai Nilai-Nilai Konstitusi dalam Kehidupan Berbangsa dan Bernegara</p>
+
+      <!-- Kotak Pencarian -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari materi di modul (misal: hierarki hukum, UUD 1945, dll)">
+        <button onclick="searchInModule()">
+          <i class="fas fa-search"></i> Cari
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="container">
-
     <div class="cards">
       <div class="card">
         <h2><i class="fas fa-book"></i> Modul & Materi</h2>
@@ -316,33 +375,37 @@
         © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X
       </div>
     </footer>
-
   </div>
 
   <script>
-    // Dark Mode Toggle
+    // Dark Mode
     const toggleButton = document.getElementById('darkModeToggle');
     const htmlRoot = document.getElementById('html-root');
-
-    // Cek preferensi pengguna
     const userPref = localStorage.getItem('darkMode');
     if (userPref === 'enabled') {
       htmlRoot.classList.add('dark-mode');
       toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
     }
-
     toggleButton.addEventListener('click', () => {
       htmlRoot.classList.toggle('dark-mode');
-      const isDarkMode = htmlRoot.classList.contains('dark-mode');
-      
-      if (isDarkMode) {
-        localStorage.setItem('darkMode', 'enabled');
-        toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-      } else {
-        localStorage.setItem('darkMode', 'disabled');
-        toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
-      }
+      const isDark = htmlRoot.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+      toggleButton.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
+
+    // Pencarian: arahkan ke Google dengan site filter
+    function searchInModule() {
+      const query = document.getElementById('searchInput').value.trim();
+      if (!query) {
+        alert('Masukkan kata kunci untuk mencari materi!');
+        return;
+      }
+      // Ganti dengan domain Anda jika di-host online
+      const site = 'file:///'; // untuk lokal, Google tidak bisa index
+      // Alternatif: buka modul dan beri tahu siswa untuk gunakan Ctrl+F
+      alert('Fitur pencarian lokal terbatas.\nSilakan buka "Modul Ajar", lalu tekan Ctrl+F untuk mencari: "' + query + '"');
+      window.open('modul-pancasila.html', '_blank');
+    }
   </script>
 
 </body>
