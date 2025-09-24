@@ -20,6 +20,8 @@
       --card-bg: #ffffff;
       --text-color: #333;
       --footer-bg: linear-gradient(to right, var(--merah), var(--merah-gelap));
+      --emas: #ffd700;
+      --hijau: #2e8b57;
     }
 
     .dark-mode {
@@ -28,6 +30,8 @@
       --text-color: #f0f0f0;
       --abu: #2a2a2a;
       --footer-bg: linear-gradient(to right, #8a122a, #6a0f22);
+      --emas: #ffcc00;
+      --hijau: #3a9d5d;
     }
 
     * {
@@ -42,6 +46,23 @@
       color: var(--text-color);
       line-height: 1.6;
       transition: background 0.4s, color 0.4s;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background pattern dengan peta Indonesia yang subtle */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%23c91a3c" stroke-width="0.3" opacity="0.05"/></svg>');
+      background-size: 200px;
+      background-position: center;
+      z-index: -1;
+      opacity: 0.3;
     }
 
     #darkModeToggle {
@@ -61,33 +82,59 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.3s ease;
     }
 
-    /* Hero Section with Garuda Background */
+    #darkModeToggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Garuda Pancasila di header */
+    .garuda-container {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .garuda-svg {
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 5px 15px rgba(201, 26, 60, 0.3));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, var(--merah), #e63946);
       color: white;
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 60px 20px 40px;
       position: relative;
       overflow: hidden;
+      border-bottom: 5px solid var(--emas);
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
     }
 
     .hero::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1.8);
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Garuda_Pancasila.svg/1200px-Garuda_Pancasila.svg.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.12;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
+      top: -50px; right: -50px; width: 200px; height: 200px;
+    }
+    .hero::after {
+      bottom: -80px; left: -60px; width: 250px; height: 250px;
     }
 
     .hero-content {
@@ -103,6 +150,7 @@
       border-radius: 16px;
       background: rgba(255,255,255,0.2);
       padding: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .lottie-pancasila {
@@ -116,12 +164,26 @@
       font-weight: 800;
       margin: 0 auto 16px;
       text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 10%;
+      width: 80%;
+      height: 3px;
+      background: var(--emas);
+      border-radius: 3px;
     }
 
     .hero p {
       font-size: 1.2em;
       opacity: 0.95;
       margin: 0 auto 25px;
+      max-width: 700px;
     }
 
     /* Search Box */
@@ -132,6 +194,7 @@
       padding: 8px;
       border-radius: 50px;
       display: flex;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .search-box input {
@@ -141,6 +204,7 @@
       font-size: 1em;
       border-radius: 50px 0 0 50px;
       outline: none;
+      background: transparent;
     }
 
     .search-box button {
@@ -151,11 +215,16 @@
       border-radius: 0 50px 50px 0;
       cursor: pointer;
       font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .search-box button:hover {
+      background: var(--merah);
     }
 
     .container {
       max-width: 1200px;
-      margin: -40px auto 0;
+      margin: -30px auto 0;
       padding: 0 20px;
       position: relative;
       z-index: 2;
@@ -176,6 +245,18 @@
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-top: 4px solid var(--biru);
       color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--merah), var(--hijau), var(--biru), var(--emas));
     }
 
     .card:hover {
@@ -219,12 +300,26 @@
       transition: all 0.3s ease;
       text-align: center;
       box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+      border: none;
+      cursor: pointer;
+      margin: 5px 0;
+      width: 100%;
     }
 
     .btn:hover {
       background: #0b5ed7;
       transform: scale(1.03);
       box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+    }
+
+    .btn-merah {
+      background: var(--merah);
+      box-shadow: 0 4px 10px rgba(201, 26, 60, 0.3);
+    }
+
+    .btn-merah:hover {
+      background: var(--merah-gelap);
+      box-shadow: 0 6px 15px rgba(201, 26, 60, 0.4);
     }
 
     .section {
@@ -234,6 +329,20 @@
       margin-bottom: 50px;
       box-shadow: var(--shadow);
       color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%23c91a3c" stroke-width="1" opacity="0.1"/></svg>') no-repeat;
+      background-size: contain;
+      opacity: 0.5;
     }
 
     .section h2 {
@@ -259,6 +368,18 @@
       padding: 40px 20px;
       border-radius: 24px 24px 0 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, var(--emas), var(--hijau), var(--biru));
     }
 
     footer p, footer a {
@@ -275,6 +396,31 @@
       font-size: 0.95em;
     }
 
+    /* Peta Indonesia stylized */
+    .peta-indonesia {
+      width: 200px;
+      height: 100px;
+      margin: 20px auto;
+      background: 
+        radial-gradient(circle at 30% 50%, var(--merah) 10%, transparent 10.5%),
+        radial-gradient(circle at 70% 50%, var(--merah) 10%, transparent 10.5%),
+        linear-gradient(to right, var(--merah) 0%, var(--merah) 33%, white 33%, white 66%, var(--merah) 66%, var(--merah) 100%);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .peta-indonesia::before {
+      content: "INDONESIA";
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      color: var(--merah);
+    }
+
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -289,6 +435,7 @@
       iframe { min-height: 350px; }
       .container { margin-top: -20px; }
       .lottie-pancasila { width: 100px; height: 100px; }
+      .garuda-svg { width: 60px; height: 60px; }
     }
   </style>
 </head>
@@ -299,6 +446,16 @@
   </button>
 
   <div class="hero">
+    <div class="garuda-container">
+      <!-- SVG Garuda Pancasila -->
+      <svg class="garuda-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="#c91a3c"/>
+        <path d="M50,20 C65,20 80,35 80,50 C80,65 65,80 50,80 C35,80 20,65 20,50 C20,35 35,20 50,20 Z" fill="#ffd700"/>
+        <path d="M50,30 C60,30 70,40 70,50 C70,60 60,70 50,70 C40,70 30,60 30,50 C30,40 40,30 50,30 Z" fill="#c91a3c"/>
+        <path d="M50,40 C55,40 60,45 60,50 C60,55 55,60 50,60 C45,60 40,55 40,50 C40,45 45,40 50,40 Z" fill="#ffd700"/>
+      </svg>
+    </div>
+    
     <div class="hero-content">
       <a href="https://ibb.co.com/wZzKGnDX" target="_blank" rel="noopener">
         <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
@@ -329,19 +486,19 @@
     <div class="cards">
       <div class="card">
         <h2><i class="fas fa-book"></i> Modul & Materi</h2>
-        <ul>
+        <ul style="list-style: none; padding: 0;">
           <li>
-            <a href="modul-pancasila.html" class="btn" target="_blank">
+            <a href="modul-pancasila.html" class="btn btn-merah" target="_blank">
               <i class="fas fa-file-alt"></i> Modul Ajar
             </a>
           </li>
           <li>
-            <a href="materi-uud-pancasila.html" class="btn" target="_blank">
+            <a href="materi-uud-pancasila.html" class="btn btn-merah" target="_blank">
               <i class="fas fa-landmark"></i> Materi UUD 1945
             </a>
           </li>
           <li>
-            <a href="lkpd_pancasila.pdf" class="btn" target="_blank">
+            <a href="lkpd_pancasila.pdf" class="btn btn-merah" target="_blank">
               <i class="fas fa-file-pdf"></i> Lembar Kerja Peserta Didik (LKPD)
             </a>
           </li>
@@ -354,6 +511,9 @@
         <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn" target="_blank">
           <i class="fab fa-google"></i> Kumpulkan Tugas
         </a>
+        
+        <!-- Peta Indonesia kecil -->
+        <div class="peta-indonesia"></div>
       </div>
     </div>
 
@@ -404,6 +564,16 @@
       alert('Fitur pencarian lokal terbatas.\nSilakan buka "Modul Ajar", lalu tekan Ctrl+F untuk mencari: "' + query + '"');
       window.open('modul-pancasila.html', '_blank');
     }
+
+    // Tambahkan efek hover yang lebih smooth pada card
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
   </script>
 
 </body>
