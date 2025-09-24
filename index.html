@@ -5,33 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>📘 Pendidikan Pancasila X | SMAN 1 Bangorejo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
-      --merah: #c91a3c;
-      --merah-gelap: #a01530;
-      --putih: #ffffff;
-      --abu: #f8f9fa;
-      --biru: #0d6efd;
-      --biru-muda: #e7f1ff;
-      --abu-tua: #6c757d;
-      --shadow: 0 10px 30px rgba(0,0,0,0.12);
-      --bg-body: #fafbff;
-      --card-bg: #ffffff;
-      --text-color: #333;
-      --footer-bg: linear-gradient(to right, var(--merah), var(--merah-gelap));
-      --emas: #ffd700;
-      --hijau: #2e8b57;
+      --primary: #c91a3c;
+      --primary-dark: #a01530;
+      --secondary: #0d6efd;
+      --accent: #ffd700;
+      --light: #f8f9fa;
+      --dark: #333;
+      --white: #ffffff;
+      --gray: #6c757d;
+      --success: #28a745;
+      --shadow: 0 5px 15px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
     }
 
     .dark-mode {
-      --bg-body: #121212;
-      --card-bg: #1e1e1e;
-      --text-color: #f0f0f0;
-      --abu: #2a2a2a;
-      --footer-bg: linear-gradient(to right, #8a122a, #6a0f22);
-      --emas: #ffcc00;
-      --hijau: #3a9d5d;
+      --primary: #e63946;
+      --primary-dark: #c1121f;
+      --secondary: #4cc9f0;
+      --accent: #ffd166;
+      --light: #2a2a2a;
+      --dark: #f8f9fa;
+      --white: #1e1e1e;
+      --gray: #adb5bd;
+      --success: #4ad66d;
+      --shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     * {
@@ -41,512 +40,698 @@
     }
 
     body {
-      font-family: 'Segoe UI', 'Open Sans', sans-serif;
-      background: var(--bg-body);
-      color: var(--text-color);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
       line-height: 1.6;
-      transition: background 0.4s, color 0.4s;
-      position: relative;
+      transition: var(--transition);
       overflow-x: hidden;
     }
 
-    /* Background pattern dengan peta Indonesia yang subtle */
-    body::before {
-      content: "";
-      position: fixed;
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 0.5rem 2rem;
+      box-shadow: var(--shadow);
+      position: sticky;
       top: 0;
-      left: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sma-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .sma-logo img {
       width: 100%;
       height: 100%;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%23c91a3c" stroke-width="0.3" opacity="0.05"/></svg>');
-      background-size: 200px;
-      background-position: center;
-      z-index: -1;
-      opacity: 0.3;
-    }
-
-    #darkModeToggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--biru);
-      color: white;
-      width: 50px;
-      height: 50px;
+      object-fit: contain;
       border-radius: 50%;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
     }
 
-    #darkModeToggle:hover {
-      transform: scale(1.1);
+    .logo-text h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.2rem;
     }
 
-    /* Garuda Pancasila di header */
-    .garuda-container {
-      position: relative;
-      width: 100%;
-      height: 120px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
+    .logo-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
     }
 
-    .garuda-svg {
-      width: 80px;
-      height: 80px;
-      filter: drop-shadow(0 5px 15px rgba(201, 26, 60, 0.3));
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, var(--merah), #e63946);
-      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border-radius: 20px;
+      padding: 3rem 2rem;
       text-align: center;
-      padding: 60px 20px 40px;
+      margin-bottom: 3rem;
       position: relative;
       overflow: hidden;
-      border-bottom: 5px solid var(--emas);
-    }
-
-    .hero::before, .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
+      box-shadow: var(--shadow);
     }
 
     .hero::before {
-      top: -50px; right: -50px; width: 200px; height: 200px;
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 8s infinite alternate;
     }
-    .hero::after {
-      bottom: -80px; left: -60px; width: 250px; height: 250px;
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
     }
 
     .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
       position: relative;
       z-index: 2;
     }
 
-    .hero img {
-      height: 90px;
-      margin-bottom: 20px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.2);
-      padding: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .lottie-pancasila {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.4em;
-      font-weight: 800;
-      margin: 0 auto 16px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      position: relative;
-      display: inline-block;
-    }
-
-    .hero h1::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 10%;
-      width: 80%;
-      height: 3px;
-      background: var(--emas);
-      border-radius: 3px;
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
     .hero p {
-      font-size: 1.2em;
-      opacity: 0.95;
-      margin: 0 auto 25px;
+      font-size: 1.2rem;
       max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    /* Leaders Section */
+    .leaders-hero {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .leader-card-hero {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      max-width: 200px;
+      backdrop-filter: blur(10px);
+    }
+
+    .leader-card-hero:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .leader-photo-hero {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      border: 3px solid var(--accent);
+    }
+
+    .leader-name-hero {
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+      color: var(--accent);
+    }
+
+    .leader-position-hero {
+      font-size: 0.9rem;
+      color: var(--white);
     }
 
     /* Search Box */
-    .search-box {
+    .search-container {
       max-width: 600px;
       margin: 0 auto;
-      background: rgba(255,255,255,0.95);
-      padding: 8px;
-      border-radius: 50px;
+    }
+
+    .search-box {
       display: flex;
+      background: var(--white);
+      border-radius: 50px;
+      overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .search-box input {
       flex: 1;
       border: none;
-      padding: 12px 20px;
-      font-size: 1em;
-      border-radius: 50px 0 0 50px;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
       outline: none;
       background: transparent;
+      color: var(--dark);
     }
 
     .search-box button {
-      background: var(--merah-gelap);
-      color: white;
+      background: var(--secondary);
+      color: var(--white);
       border: none;
-      padding: 0 24px;
-      border-radius: 0 50px 50px 0;
+      padding: 0 1.5rem;
       cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      transition: var(--transition);
     }
 
     .search-box button:hover {
-      background: var(--merah);
+      background: #0b5ed7;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: -30px auto 0;
-      padding: 0 20px;
+    /* Cards Section */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
       position: relative;
-      z-index: 2;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
 
     .card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 30px;
+      background: var(--white);
+      border-radius: 15px;
+      padding: 2rem;
       box-shadow: var(--shadow);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border-top: 4px solid var(--biru);
-      color: var(--text-color);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(to right, var(--merah), var(--hijau), var(--biru), var(--emas));
+      transition: var(--transition);
+      border-top: 5px solid var(--secondary);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
-    .card h2 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      color: var(--merah-gelap);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .dark-mode .card h2 {
-      color: #e57373;
-    }
-
-    .card h2 i {
-      background: var(--biru);
-      color: white;
-      width: 42px;
-      height: 42px;
+    .card-icon {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), #4cc9f0);
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
     .btn {
       display: inline-block;
-      background: var(--biru);
-      color: white;
+      background: var(--primary);
+      color: var(--white);
       text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 12px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
       font-weight: 600;
-      font-size: 1.05em;
-      transition: all 0.3s ease;
+      transition: var(--transition);
       text-align: center;
-      box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
       border: none;
       cursor: pointer;
-      margin: 5px 0;
-      width: 100%;
+      font-size: 1rem;
     }
 
     .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(201, 26, 60, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+    }
+
+    .btn-secondary:hover {
       background: #0b5ed7;
-      transform: scale(1.03);
-      box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
     }
 
-    .btn-merah {
-      background: var(--merah);
-      box-shadow: 0 4px 10px rgba(201, 26, 60, 0.3);
+    .btn-full {
+      width: 100%;
     }
 
-    .btn-merah:hover {
-      background: var(--merah-gelap);
-      box-shadow: 0 6px 15px rgba(201, 26, 60, 0.4);
-    }
-
-    .section {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 35px;
-      margin-bottom: 50px;
+    /* Tugas Section */
+    .tugas-section {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
       box-shadow: var(--shadow);
-      color: var(--text-color);
-      position: relative;
-      overflow: hidden;
     }
 
-    .section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 150px;
-      height: 150px;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%23c91a3c" stroke-width="1" opacity="0.1"/></svg>') no-repeat;
-      background-size: contain;
-      opacity: 0.5;
-    }
-
-    .section h2 {
-      font-size: 1.7em;
-      color: var(--merah);
-      margin-bottom: 20px;
+    .tugas-header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .tugas-header h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .iframe-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     iframe {
       width: 100%;
-      min-height: 450px;
+      min-height: 400px;
       border: none;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
+    /* Footer */
     footer {
-      background: var(--footer-bg);
-      color: white;
-      padding: 40px 20px;
-      border-radius: 24px 24px 0 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: 3rem;
     }
 
-    footer::before {
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-section h3::after {
       content: "";
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 10px;
-      background: linear-gradient(to right, var(--emas), var(--hijau), var(--biru));
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
     }
 
-    footer p, footer a {
-      color: white;
+    .footer-section p {
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .footer-section a {
+      color: var(--white);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
     }
 
     .copyright {
-      margin-top: 25px;
-      opacity: 0.8;
-      font-size: 0.95em;
-    }
-
-    /* Peta Indonesia stylized */
-    .peta-indonesia {
-      width: 200px;
-      height: 100px;
-      margin: 20px auto;
-      background: 
-        radial-gradient(circle at 30% 50%, var(--merah) 10%, transparent 10.5%),
-        radial-gradient(circle at 70% 50%, var(--merah) 10%, transparent 10.5%),
-        linear-gradient(to right, var(--merah) 0%, var(--merah) 33%, white 33%, white 66%, var(--merah) 66%, var(--merah) 100%);
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      position: relative;
-    }
-
-    .peta-indonesia::before {
-      content: "INDONESIA";
-      position: absolute;
-      bottom: -25px;
-      left: 0;
-      width: 100%;
       text-align: center;
-      font-weight: bold;
-      color: var(--merah);
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.8;
+      font-size: 0.9rem;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .tugas-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .dark-mode-toggle {
+        bottom: 1rem;
+        right: 1rem;
+      }
+
+      .leaders-hero {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 1rem;
+      }
+      
+      .hero {
+        padding: 2rem 1rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .tugas-section {
+        padding: 1.5rem;
+      }
+      
+      .leader-card-hero {
+        max-width: 150px;
+      }
+      
+      .leader-photo-hero {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .card, .section, footer {
-      animation: fadeInUp 0.6s ease-out forwards;
+    .card, .tugas-section, .hero {
+      animation: fadeIn 0.6s ease-out;
     }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.0em; }
-      iframe { min-height: 350px; }
-      .container { margin-top: -20px; }
-      .lottie-pancasila { width: 100px; height: 100px; }
-      .garuda-svg { width: 60px; height: 60px; }
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+    
+    .mb-2 {
+      margin-bottom: 2rem;
+    }
+    
+    .mt-2 {
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <button id="darkModeToggle" aria-label="Toggle dark mode">
-    <i class="fas fa-moon"></i>
-  </button>
-
-  <div class="hero">
-    <div class="garuda-container">
-      <!-- SVG Garuda Pancasila -->
-      <svg class="garuda-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="#c91a3c"/>
-        <path d="M50,20 C65,20 80,35 80,50 C80,65 65,80 50,80 C35,80 20,65 20,50 C20,35 35,20 50,20 Z" fill="#ffd700"/>
-        <path d="M50,30 C60,30 70,40 70,50 C70,60 60,70 50,70 C40,70 30,60 30,50 C30,40 40,30 50,30 Z" fill="#c91a3c"/>
-        <path d="M50,40 C55,40 60,45 60,50 C60,55 55,60 50,60 C45,60 40,55 40,50 C40,45 45,40 50,40 Z" fill="#ffd700"/>
-      </svg>
-    </div>
-    
-    <div class="hero-content">
-      <a href="https://ibb.co.com/wZzKGnDX" target="_blank" rel="noopener">
-        <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
-      </a>
-
-      <lottie-player 
-        src="https://lottie.host/0f8b8e5f-7f9e-4e4a-9d1a-2c5c4e4d5f6a/5XqYQqV1Jd.json" 
-        background="transparent" 
-        speed="1" 
-        style="width: 120px; height: 120px; margin: 0 auto 20px;"
-        loop 
-        autoplay>
-      </lottie-player>
-
-      <h1>Pendidikan Pancasila – Kelas X</h1>
-      <p>Menjiwai Nilai-Nilai Konstitusi dalam Kehidupan Berbangsa dan Bernegara</p>
-
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Cari materi di modul (misal: hierarki hukum, UUD 1945, dll)">
-        <button onclick="searchInModule()">
-          <i class="fas fa-search"></i> Cari
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="sma-logo">
+          <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
+        </div>
+        <div class="logo-text">
+          <h1>Pendidikan Pancasila</h1>
+          <p>Kelas X - SMAN 1 Bangorejo</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary">
+          <i class="fas fa-user-graduate"></i> Login Siswa
         </button>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="container">
-    <div class="cards">
-      <div class="card">
-        <h2><i class="fas fa-book"></i> Modul & Materi</h2>
-        <ul style="list-style: none; padding: 0;">
-          <li>
-            <a href="modul-pancasila.html" class="btn btn-merah" target="_blank">
-              <i class="fas fa-file-alt"></i> Modul Ajar
-            </a>
-          </li>
-          <li>
-            <a href="materi-uud-pancasila.html" class="btn btn-merah" target="_blank">
-              <i class="fas fa-landmark"></i> Materi UUD 1945
-            </a>
-          </li>
-          <li>
-            <a href="lkpd_pancasila.pdf" class="btn btn-merah" target="_blank">
-              <i class="fas fa-file-pdf"></i> Lembar Kerja Peserta Didik (LKPD)
-            </a>
-          </li>
-        </ul>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <!-- Foto Presiden dan Wakil Presiden -->
+        <div class="leaders-hero">
+          <div class="leader-card-hero">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Prabowo_Subianto_%28cropped%29.jpg/220px-Prabowo_Subianto_%28cropped%29.jpg" 
+                 alt="Presiden Prabowo Subianto" class="leader-photo-hero">
+            <div class="leader-name-hero">Prabowo Subianto</div>
+            <div class="leader-position-hero">Presiden Indonesia</div>
+          </div>
+          
+          <div class="leader-card-hero">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gibran_Rakabuming_Raka.jpg/220px-Gibran_Rakabuming_Raka.jpg" 
+                 alt="Wakil Presiden Gibran Rakabuming Raka" class="leader-photo-hero">
+            <div class="leader-name-hero">Gibran Rakabuming Raka</div>
+            <div class="leader-position-hero">Wakil Presiden Indonesia</div>
+          </div>
+        </div>
+        
+        <h2>Menjiwai Nilai-Nilai Konstitusi</h2>
+        <p>Membangun karakter bangsa melalui pemahaman mendalam tentang Pancasila dan UUD 1945 dalam kehidupan berbangsa dan bernegara</p>
+        
+        <div class="search-container">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari materi (hierarki hukum, UUD 1945, dll)">
+            <button onclick="searchInModule()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h2><i class="fas fa-upload"></i> Tugas & Pengumpulan</h2>
-        <p>Kerjakan LKPD dan kumpulkan tugas Anda melalui Google Form berikut:</p>
+    <!-- Materials Section -->
+    <section class="mb-2">
+      <div class="section-title">
+        <h2><i class="fas fa-book-open"></i> Materi Pembelajaran</h2>
+      </div>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>Modul Ajar</h3>
+          <p>Akses modul pembelajaran lengkap untuk memahami konsep Pancasila dan UUD 1945 secara mendalam.</p>
+          <a href="modul-pancasila.html" class="btn btn-full" target="_blank">
+            Buka Modul <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-landmark"></i>
+          </div>
+          <h3>Materi UUD 1945</h3>
+          <p>Pelajari isi dan makna Undang-Undang Dasar 1945 sebagai konstitusi negara Indonesia.</p>
+          <a href="materi-uud-pancasila.html" class="btn btn-full" target="_blank">
+            Pelajari <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <h3>Lembar Kerja (LKPD)</h3>
+          <p>Download lembar kerja peserta didik untuk melatih pemahaman tentang materi yang telah dipelajari.</p>
+          <a href="lkpd_pancasila.pdf" class="btn btn-full" target="_blank">
+            Download <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Kartu Baru -->
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-history"></i>
+          </div>
+          <h3>Sejarah Konstitusi</h3>
+          <p>Jelajahi perjalanan sejarah konstitusi Indonesia dari masa ke masa, termasuk amandemen UUD 1945.</p>
+          <a href="sejarah-konstitusi.pdf" class="btn btn-full" target="_blank">
+            Pelajari Sejarah <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tugas Section -->
+    <section class="tugas-section">
+      <div class="tugas-header">
+        <h2><i class="fas fa-tasks"></i> Pengumpulan Tugas</h2>
         <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn" target="_blank">
           <i class="fab fa-google"></i> Kumpulkan Tugas
         </a>
-        
-        <!-- Peta Indonesia kecil -->
-        <div class="peta-indonesia"></div>
+      </div>
+      
+      <p>Kerjakan LKPD dan kumpulkan tugas Anda melalui Google Form. Berikut daftar siswa yang telah mengumpulkan:</p>
+      
+      <div class="iframe-container mt-2">
+        <iframe 
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>SMAN 1 Bangorejo</h3>
+        <p>Jalan Bhayangkara No. 67, Kebondalem, Bangorejo, Banyuwangi, Jawa Timur, Indonesia</p>
+        <p><i class="fas fa-phone"></i> Tel./Faks: 0333-713297</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Link Cepat</h3>
+        <p><a href="modul-pancasila.html"><i class="fas fa-arrow-right"></i> Modul Ajar</a></p>
+        <p><a href="materi-uud-pancasila.html"><i class="fas fa-arrow-right"></i> Materi UUD 1945</a></p>
+        <p><a href="lkpd_pancasila.pdf"><i class="fas fa-arrow-right"></i> LKPD</a></p>
+        <p><a href="https://forms.gle/UpZXSCgKnxPbpvph9"><i class="fas fa-arrow-right"></i> Kumpulkan Tugas</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Kontak</h3>
+        <p><a href="http://sman1banyuwangi.sch.id" target="_blank"><i class="fas fa-globe"></i> sman1banyuwangi.sch.id</a></p>
+        <p><a href="http://sman1banyuwangi.sch.id" target="_blank"><i class="fas fa-envelope"></i> sman1banyuwangi.sch.id</a></p>
       </div>
     </div>
-
-    <div class="section">
-      <h2><i class="fas fa-table"></i> Daftar Pengumpulan Tugas</h2>
-      <p>Berikut siswa yang telah menyelesaikan dan mengumpulkan tugas:</p>
-      <iframe 
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false">
-      </iframe>
+    
+    <div class="copyright">
+      © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X
     </div>
+  </footer>
 
-    <footer>
-      <h3><i class="fas fa-school"></i> SMAN 1 BANGOREJO</h3>
-      <p><strong>Lokasi</strong> &nbsp; Jalan Bhayangkara No. 67, Kebondalem, Bangorejo, Banyuwangi, Jawa Timur, Indonesia</p>
-      <p><strong>Tel./Faks.</strong> &nbsp; 0333-713297</p>
-      <p><strong>Situs web</strong> &nbsp; 
-        <a href="http://sman1banyuwangi.sch.id" target="_blank" rel="noopener">sman1banyuwangi.sch.id</a>
-      </p>
-      <div class="copyright">
-        © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X
-      </div>
-    </footer>
-  </div>
+  <!-- Dark Mode Toggle -->
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
 
   <script>
     // Dark Mode Toggle
     const toggleButton = document.getElementById('darkModeToggle');
     const htmlRoot = document.getElementById('html-root');
     const userPref = localStorage.getItem('darkMode');
+    
     if (userPref === 'enabled') {
       htmlRoot.classList.add('dark-mode');
       toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
     }
+    
     toggleButton.addEventListener('click', () => {
       htmlRoot.classList.toggle('dark-mode');
       const isDark = htmlRoot.classList.contains('dark-mode');
@@ -554,7 +739,7 @@
       toggleButton.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
 
-    // Local search fallback
+    // Search Function
     function searchInModule() {
       const query = document.getElementById('searchInput').value.trim();
       if (!query) {
@@ -565,13 +750,20 @@
       window.open('modul-pancasila.html', '_blank');
     }
 
-    // Tambahkan efek hover yang lebih smooth pada card
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-      });
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
+    // Add subtle animation to cards on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeIn 0.6s ease-out';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      cards.forEach(card => {
+        observer.observe(card);
       });
     });
   </script>
