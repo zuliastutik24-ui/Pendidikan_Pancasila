@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sejarah Konstitusi Indonesia - Pendidikan Pancasila X | SMAN 1 Bangorejo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --merah: #c91a3c;
+      --merah-gelap: #a01530;
+      --putih: #ffffff;
+      --abu: #f8f9fa;
+      --biru: #0d6efd;
+      --text-color: #333;
+      --bg-body: #fafbff;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --hijau: #198754;
+      --kuning: #ffc107;
+    }
+
+    .dark-mode {
+      --bg-body: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #f0f0f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Open Sans', sans-serif;
+      background: var(--bg-body);
+      color: var(--text-color);
+      line-height: 1.7;
+      padding: 20px;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    h1, h2, h3 {
+      color: var(--merah);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.2em;
+    }
+
+    .logo-header {
+      text-align: center;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-header img {
+      height: 80px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.03);
+      padding: 6px;
+    }
+
+    p, ul, ol {
+      margin-bottom: 16px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--merah);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-left: 80px;
+    }
+
+    .timeline-year {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--merah);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--abu);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .timeline-content h3 {
+      margin-top: 0;
+      color: var(--merah);
+    }
+
+    .highlight-box {
+      background: rgba(201, 26, 60, 0.1);
+      border-left: 4px solid var(--merah);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .amandemen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .amandemen-card {
+      background: var(--card-bg);
+      border: 1px solid var(--abu);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .amandemen-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .amandemen-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--merah);
+      color: white;
+      border-radius: 50%;
+      line-height: 40px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .amandemen-card h4 {
+      color: var(--merah);
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: var(--biru);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: var(--biru);
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-btn:hover {
+      background: #0b5ed7;
+    }
+
+    .dark-mode-toggle {
+      background: var(--card-bg);
+      border: 2px solid var(--merah);
+      color: var(--merah);
+      padding: 8px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .dark-mode-toggle:hover {
+      background: var(--merah);
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--abu);
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .topic-section {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--abu);
+    }
+
+    .topic-section:last-child {
+      border-bottom: none;
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      margin: 25px 0;
+      padding: 15px;
+      border-left: 3px solid var(--kuning);
+      background: rgba(255, 193, 7, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .logo-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item {
+        padding-left: 60px;
+      }
+      
+      .timeline-year {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo-header">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+      </a>
+      
+      <a href="https://ibb.co.com/wZzKGnDX">
+        <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="SMAN1-Bangorejo-emblem">
+      </a>
+      
+      <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i> Mode Gelap
+      </button>
+    </div>
+
+    <h1>Sejarah Konstitusi Indonesia</h1>
+    
+    <div class="quote">
+      "Konstitusi adalah jiwa suatu negara. Ia menentukan arah dan tujuan bangsa."<br>
+      - Mohammad Hatta
+    </div>
+
+    <div class="topic-section">
+      <h2>Pengertian Konstitusi</h2>
+      <p>
+        Konstitusi merupakan hukum dasar tertinggi yang menjadi pedoman penyelenggaraan negara. 
+        Di Indonesia, konstitusi mengalami perkembangan yang panjang sejak masa pra-kemerdekaan hingga reformasi.
+      </p>
+      
+      <div class="highlight-box">
+        <p><strong>Konstitusi Indonesia:</strong> Tidak hanya UUD 1945, tetapi juga meliputi Ketetapan MPR, Undang-Undang, dan peraturan perundang-undangan lainnya yang bersumber dari UUD 1945.</p>
+      </div>
+    </div>
+
+    <div class="topic-section">
+      <h2>Perjalanan Sejarah Konstitusi Indonesia</h2>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1945</div>
+          <div class="timeline-content">
+            <h3>UUD 1945 (18 Agustus 1945)</h3>
+            <p>Ditetapkan oleh PPKI sehari setelah proklamasi kemerdekaan. Ciri khasnya:</p>
+            <ul>
+              <li>Sistem pemerintahan presidensial</li>
+              <li>Kekuasaan tertinggi di tangan MPR</li>
+              <li>Presiden sebagai kepala negara dan pemerintahan</li>
+              <li>Menganut sistem kabinet presidensial</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">1949</div>
+          <div class="timeline-content">
+            <h3>Konstitusi RIS (Republik Indonesia Serikat)</h3>
+            <p>Hasil dari Konferensi Meja Bundar, Indonesia menjadi negara serikat dengan:</p>
+            <ul>
+              <li>Sistem pemerintahan parlementer</li>
+              <li>Bentuk negara serikat (federasi)</li>
+              <li>Kepala negara adalah presiden, kepala pemerintahan adalah perdana menteri</li>
+              <li>Berlaku dari 27 Desember 1949 hingga 17 Agustus 1950</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">1950</div>
+          <div class="timeline-content">
+            <h3>UUDS 1950 (Undang-Undang Dasar Sementara)</h3>
+            <p>Diberlakukan setelah kembali ke bentuk negara kesatuan:</p>
+            <ul>
+              <li>Bentuk negara kesatuan</li>
+              <li>Sistem pemerintahan parlementer</li>
+              <li>Presiden sebagai kepala negara yang bersifat simbolis</li>
+              <li>Perdana menteri memegang kekuasaan pemerintahan</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">1959</div>
+          <div class="timeline-content">
+            <h3>Kembali ke UUD 1945 (Dekrit Presiden 5 Juli 1959)</h3>
+            <p>Presiden Soekarno mengeluarkan dekrit yang menandai:</p>
+            <ul>
+              <li>Pembubaran Konstituante</li>
+              <li>Kembali berlakunya UUD 1945</li>
+              <li>Pemberlakuan demokrasi terpimpin</li>
+              <li>Pembentukan MPRS dan DPAS</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-year">1999-2002</div>
+          <div class="timeline-content">
+            <h3>Amandemen UUD 1945</h3>
+            <p>Era reformasi membawa perubahan mendasar melalui empat tahap amandemen:</p>
+            
+            <div class="amandemen-grid">
+              <div class="amandemen-card">
+                <div class="amandemen-number">I</div>
+                <h4>Amandemen Pertama (1999)</h4>
+                <p>Pembatasan kekuasaan presiden, memperkuat peran DPR</p>
+              </div>
+              
+              <div class="amandemen-card">
+                <div class="amandemen-number">II</div>
+                <h4>Amandemen Kedua (2000)</h4>
+                <p>Otonomi daerah, HAM, dan perubahan struktur pemerintahan</p>
+              </div>
+              
+              <div class="amandemen-card">
+                <div class="amandemen-number">III</div>
+                <h4>Amandemen Ketiga (2001)</h4>
+                <p>Perubahan sistem pemilihan presiden dan pembentukan MK</p>
+              </div>
+              
+              <div class="amandemen-card">
+                <div class="amandemen-number">IV</div>
+                <h4>Amandemen Keempat (2002)</h4>
+                <p>Pembentukan DPD, pendidikan, dan ekonomi nasional</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic-section">
+      <h2>Perubahan Penting Pasca Amandemen</h2>
+      <p>Amandemen UUD 1945 membawa perubahan mendasar dalam sistem ketatanegaraan Indonesia:</p>
+      
+      <ul>
+        <li><strong>Pembatasan Kekuasaan:</strong> Masa jabatan presiden maksimal dua periode</li>
+        <li><strong>Pemilihan Langsung:</strong> Presiden dan wakil presiden dipilih langsung oleh rakyat</li>
+        <li><strong>Desentralisasi:</strong> Penguatan otonomi daerah dan pembentukan DPD</li>
+        <li><strong>Perlindungan HAM:</strong> Penambahan bab khusus tentang Hak Asasi Manusia</li>
+        <li><strong>Lembaga Baru:</strong> Pembentukan Mahkamah Konstitusi dan Komisi Yudisial</li>
+        <li><strong>Ekonomi Kerakyatan:</strong> Penguatan prinsip ekonomi kerakyatan dan kesejahteraan sosial</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <p><strong>Catatan Penting:</strong> Amandemen UUD 1945 tidak mengubah Pembukaan UUD 1945 yang memuat dasar negara Pancasila, karena Pembukaan merupakan staatsfundamentalnorm (norma fundamental negara) yang tidak boleh diubah.</p>
+      </div>
+    </div>
+
+    <div class="topic-section">
+      <h2>Makna Perubahan Konstitusi bagi Kehidupan Berbangsa</h2>
+      <p>Perjalanan konstitusi Indonesia mencerminkan dinamika kehidupan berbangsa dan bernegara:</p>
+      
+      <ul>
+        <li>Menunjukkan kemampuan bangsa Indonesia untuk beradaptasi dengan perubahan zaman</li>
+        <li>Memperkuat sistem checks and balances dalam penyelenggaraan negara</li>
+        <li>Meningkatkan partisipasi rakyat dalam proses politik</li>
+        <li>Memperjelas dan memperkuat perlindungan hak asasi manusia</li>
+        <li>Menjadi landasan bagi pembangunan hukum yang lebih demokratis</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>© 2025 SMAN 1 Bangorejo – Pendidikan Pancasila Kelas X</p>
+    </footer>
+  </div>
+
+  <script>
+    // Fungsi untuk toggle dark mode
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlRoot = document.getElementById('html-root');
+    
+    // Cek preferensi dark mode di localStorage
+    const userPref = localStorage.getItem('darkMode');
+    if (userPref === 'enabled') {
+      htmlRoot.classList.add('dark-mode');
+      darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Mode Terang';
+    }
+    
+    // Event listener untuk tombol dark mode
+    darkModeToggle.addEventListener('click', () => {
+      htmlRoot.classList.toggle('dark-mode');
+      
+      if (htmlRoot.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Mode Terang';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Mode Gelap';
+      }
+    });
+  </script>
+
+</body>
+</html>
