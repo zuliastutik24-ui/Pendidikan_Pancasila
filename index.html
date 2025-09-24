@@ -301,7 +301,6 @@
         <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
       </a>
 
-      <!-- Animasi Lottie Pancasila -->
       <lottie-player 
         src="https://lottie.host/0f8b8e5f-7f9e-4e4a-9d1a-2c5c4e4d5f6a/5XqYQqV1Jd.json" 
         background="transparent" 
@@ -314,7 +313,6 @@
       <h1>Pendidikan Pancasila – Kelas X</h1>
       <p>Menjiwai Nilai-Nilai Konstitusi dalam Kehidupan Berbangsa dan Bernegara</p>
 
-      <!-- Kotak Pencarian -->
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Cari materi di modul (misal: hierarki hukum, UUD 1945, dll)">
         <button onclick="searchInModule()">
@@ -340,7 +338,7 @@
             </a>
           </li>
           <li>
-            <a href="LKPD_Pendidikan_Pancasila_NamaSiswa.pdf" class="btn" target="_blank">
+            <a href="lkpd_pancasila.pdf" class="btn" target="_blank">
               <i class="fas fa-file-pdf"></i> Lembar Kerja Peserta Didik (LKPD)
             </a>
           </li>
@@ -378,7 +376,7 @@
   </div>
 
   <script>
-    // Dark Mode
+    // Dark Mode Toggle
     const toggleButton = document.getElementById('darkModeToggle');
     const htmlRoot = document.getElementById('html-root');
     const userPref = localStorage.getItem('darkMode');
@@ -393,16 +391,13 @@
       toggleButton.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
 
-    // Pencarian: arahkan ke Google dengan site filter
+    // Local search fallback
     function searchInModule() {
       const query = document.getElementById('searchInput').value.trim();
       if (!query) {
         alert('Masukkan kata kunci untuk mencari materi!');
         return;
       }
-      // Ganti dengan domain Anda jika di-host online
-      const site = 'file:///'; // untuk lokal, Google tidak bisa index
-      // Alternatif: buka modul dan beri tahu siswa untuk gunakan Ctrl+F
       alert('Fitur pencarian lokal terbatas.\nSilakan buka "Modul Ajar", lalu tekan Ctrl+F untuk mencari: "' + query + '"');
       window.open('modul-pancasila.html', '_blank');
     }
