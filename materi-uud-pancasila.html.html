@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📘 UUD NRI 1945 – Pendidikan Pancasila X</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --merah: #c91a3c;
+      --putih: #ffffff;
+      --abu: #f5f7fa;
+      --biru: #0d6efd;
+      --abu-tua: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #f9f9f9 0%, #eef2ff 100%);
+      color: #333;
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(120deg, var(--merah), #e63946);
+      color: var(--putih);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "⭐";
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+      opacity: 0.7;
+    }
+
+    header img {
+      height: 90px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      padding: 8px;
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 30px 0 20px;
+      color: var(--merah);
+      font-size: 1.6em;
+    }
+
+    .section-title i {
+      background: var(--merah);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--biru);
+      margin-bottom: 16px;
+      font-size: 1.4em;
+    }
+
+    h3 {
+      color: var(--merah);
+      margin: 20px 0 12px;
+      font-size: 1.25em;
+    }
+
+    p {
+      margin-bottom: 14px;
+      font-size: 1.05em;
+    }
+
+    ul, ol {
+      padding-left: 25px;
+      margin: 16px 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #fff9c4 0%, #ffecb3 100%);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      color: #5d4037;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 25px 0;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .video-card h3 {
+      padding: 16px;
+      background: #f8f9fa;
+      margin: 0;
+      font-size: 1.2em;
+      border-bottom: 1px solid #eee;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 220px;
+      border: none;
+      display: block;
+    }
+
+    .quote {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      border-left: 4px solid var(--biru);
+      padding: 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 25px 0;
+      font-style: italic;
+      color: #0d47a1;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--abu-tua);
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      .video-card iframe {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <a href="https://ibb.co.com/wZzKGnDX" target="_blank" rel="noopener">
+      <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
+    </a>
+    <h1>Undang-Undang Dasar NRI Tahun 1945</h1>
+    <p>Pendidikan Pancasila • Kelas X • Semester Ganjil</p>
+  </header>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <h3><i class="fas fa-play-circle"></i> Mengenal UUD 1945</h3>
+      <iframe 
+        src="https://www.youtube.com/embed/YTalH_S99-U?si=gHcFxNCZQeCxdKrE" 
+        title="Mengenal UUD NRI 1945"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-card">
+      <h3><i class="fas fa-sitemap"></i> Hierarki Peraturan Perundang-undangan</h3>
+      <iframe 
+        src="https://www.youtube.com/embed/ZEw_daLQMW4?si=h_b6BjoKIb8PMI7L" 
+        title="Hierarki Peraturan Perundang-undangan"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-book"></i> Apa Itu UUD NRI Tahun 1945?</h2>
+    <p>
+      Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 adalah <span class="highlight">konstitusi tertulis</span> yang menjadi landasan hukum tertinggi di Indonesia. Disahkan pada <strong>18 Agustus 1945</strong>, UUD 1945 bukan hanya aturan hukum, tetapi juga cerminan jati diri bangsa dan penjabaran nilai-nilai <strong>Pancasila</strong>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-layer-group"></i> Kedudukan & Fungsi UUD 1945</h2>
+    <ul>
+      <li>Sebagai <strong>hukum dasar tertinggi</strong> negara.</li>
+      <li>Menjadi <strong>sumber dari segala sumber hukum</strong> nasional.</li>
+      <li>Menjadi <strong>pedoman penyelenggaraan negara</strong>.</li>
+      <li>Dasar pembentukan peraturan di bawahnya (UU, PP, Perpres, dll).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-list-ol"></i> Hierarki Peraturan Perundang-undangan</h2>
+    <p>Berdasarkan <strong>UU No. 12 Tahun 2011 jo. UU No. 15 Tahun 2019</strong>:</p>
+    <ol>
+      <li>UUD NRI Tahun 1945</li>
+      <li>Ketetapan MPR</li>
+      <li>Undang-Undang / Perppu</li>
+      <li>Peraturan Pemerintah (PP)</li>
+      <li>Peraturan Presiden (Perpres)</li>
+      <li>Peraturan Daerah Provinsi</li>
+      <li>Peraturan Daerah Kabupaten/Kota</li>
+    </ol>
+    <p>➡ <strong>Prinsip:</strong> Peraturan yang lebih rendah <em>tidak boleh bertentangan</em> dengan yang lebih tinggi.</p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-heart"></i> Relevansi dalam Kehidupan Sehari-hari</h2>
+    <p>UUD 1945 hadir dalam kehidupan nyata, misalnya:</p>
+    <ul>
+      <li>Mematuhi aturan lalu lintas → bentuk <strong>taat hukum</strong>.</li>
+      <li>Menghormati teman beda agama → menjalankan <strong>nilai Bhinneka Tunggal Ika</strong>.</li>
+      <li>Membayar pajak → mendukung <strong>keadilan sosial</strong> (Pasal 33).</li>
+      <li>Berpartisipasi dalam pemilu → menjalankan hak demokrasi (Pasal 28).</li>
+    </ul>
+  </div>
+
+  <div class="quote">
+    “UUD 1945 bukan hanya dokumen hukum, tapi <strong>komitmen moral</strong> kita sebagai warga negara untuk hidup berlandaskan Pancasila.”
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-star"></i> Nilai Pancasila dalam UUD 1945</h2>
+    <ul>
+      <li><strong>Sila 1</strong>: Pasal 29 Ayat (1) – “Negara berdasar atas Ketuhanan Yang Maha Esa.”</li>
+      <li><strong>Sila 2</strong>: Pasal 27 Ayat (1) – “Segala warga negara bersamaan kedudukannya dalam hukum.”</li>
+      <li><strong>Sila 5</strong>: Pasal 33 – “Perekonomian disusun berdasar asas kekeluargaan dan keadilan sosial.”</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 SMAN 1 Bangorejo • Materi Pendidikan Pancasila Kelas X</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

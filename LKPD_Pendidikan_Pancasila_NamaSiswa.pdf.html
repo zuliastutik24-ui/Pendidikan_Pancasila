@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LKPD - Pendidikan Pancasila</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: linear-gradient(135deg, #c91a3c, #e63946);
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .header h1 {
+      font-size: 1.6em;
+      margin-bottom: 8px;
+    }
+    .header p {
+      font-size: 1em;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0d6efd;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 600;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f8ff;
+    }
+    .btn {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #0b5ed7;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📘 LEMBAR KERJA PESERTA DIDIK (LKPD)</h1>
+  <p>Mata Pelajaran: Pendidikan Pancasila | Kelas: X | Pertemuan ke-9</p>
+</div>
+
+<div class="section">
+  <h2>Identitas Siswa</h2>
+  <label>Nama Lengkap:</label>
+  <input type="text" id="nama" placeholder="Isi nama lengkap Anda">
+
+  <label>Kelas:</label>
+  <input type="text" id="kelas" value="X" readonly>
+
+  <label>Tanggal:</label>
+  <input type="text" id="tanggal" placeholder="Contoh: 5 April 2025">
+</div>
+
+<div class="section">
+  <h2>Refleksi Diri: Taat Hukum</h2>
+  <label>1. Tuliskan satu aturan di sekolah atau lingkungan sekitar yang paling sering Anda temui. Mengapa aturan tersebut penting?</label>
+  <textarea id="refleksi1" placeholder="Jawaban Anda..."></textarea>
+
+  <label>2. Apa arti “taat hukum” menurut Anda dalam kehidupan sehari-hari?</label>
+  <textarea id="refleksi2" placeholder="Jawaban Anda..."></textarea>
+</div>
+
+<div class="section">
+  <h2>Tugas Analisis: Hierarki Peraturan Perundang-undangan</h2>
+  <p>Lengkapi tabel berikut berdasarkan UU No. 12 Tahun 2011 jo. UU No. 15 Tahun 2019:</p>
+  <table id="tabel-hierarki">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Jenis Peraturan Perundang-undangan</th>
+        <th>Contoh (opsional)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Undang-Undang Dasar Negara Republik Indonesia Tahun 1945</td><td></td></tr>
+      <tr><td>2</td><td><input type="text" value="Ketetapan MPR" style="width:100%"></td><td><input type="text" style="width:100%"></td></tr>
+      <tr><td>3</td><td><input type="text" value="Undang-Undang / Peraturan Pemerintah Pengganti Undang-Undang" style="width:100%"></td><td><input type="text" style="width:100%"></td></tr>
+      <tr><td>4</td><td><input type="text" value="Peraturan Pemerintah" style="width:100%"></td><td><input type="text" style="width:100%"></td></tr>
+      <tr><td>5</td><td><input type="text" value="Peraturan Presiden" style="width:100%"></td><td><input type="text" style="width:100%"></td></tr>
+      <tr><td>6</td><td><input type="text" value="Peraturan Daerah Provinsi" style="width:100%"></td><td><input type="text" style="width:100%"></td></tr>
+      <tr><td>7</td><td><input type="text" value="Peraturan Daerah Kabupaten/Kota" style="width:100%"></td><td><input type="text" style="width:100%"></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Kasus Nyata</h2>
+  <label>3. Temukan satu berita atau kejadian di sekitar Anda yang melibatkan pelanggaran hukum (misalnya: tidak tertib lalu lintas, membuang sampah sembarangan, dll). Jelaskan:</label>
+  <textarea id="kasus" placeholder="Deskripsi kasus..."></textarea>
+
+  <label>4. Menurut Anda, peraturan perundang-undangan tingkat apa yang relevan dengan kasus tersebut? Bagaimana solusi berdasarkan nilai Pancasila?</label>
+  <textarea id="solusi" placeholder="Jawaban Anda..."></textarea>
+</div>
+
+<button class="btn" onclick="generatePDF()">📥 Unduh sebagai PDF</button>
+<div id="error-message" class="error"></div>
+
+<!-- Load jsPDF dan AutoTable dari CDN yang kompatibel -->
+<script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/jspdf-autotable@3.5.25/dist/jspdf.plugin.autotable.js"></script>
+
+<script>
+  // Pastikan jsPDF tersedia
+  let jsPDF;
+  if (typeof window.jspdf === "object") {
+    jsPDF = window.jspdf.jsPDF;
+  } else {
+    jsPDF = window.jsPDF;
+  }
+
+  function generatePDF() {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = "";
+
+    try {
+      const doc = new jsPDF();
+
+      // Header
+      doc.setFontSize(16);
+      doc.setTextColor(201, 26, 60);
+      doc.text("LEMBAR KERJA PESERTA DIDIK (LKPD)", 105, 20, null, null, "center");
+      doc.setFontSize(12);
+      doc.setTextColor(0);
+      doc.text("Pendidikan Pancasila – Kelas X – Pertemuan ke-9", 105, 27, null, null, "center");
+
+      let y = 35;
+
+      // Identitas
+      const nama = document.getElementById("nama").value || "[Nama belum diisi]";
+      const kelas = document.getElementById("kelas").value;
+      const tanggal = document.getElementById("tanggal").value || "[Tanggal belum diisi]";
+
+      doc.setFont("helvetica", "bold");
+      doc.text("Identitas Siswa", 14, y);
+      doc.setFont("helvetica", "normal");
+      y += 6;
+      doc.text(`Nama: ${nama}`, 14, y); y += 6;
+      doc.text(`Kelas: ${kelas}`, 14, y); y += 6;
+      doc.text(`Tanggal: ${tanggal}`, 14, y); y += 10;
+
+      // Refleksi 1
+      const r1 = document.getElementById("refleksi1").value || "[Belum dijawab]";
+      doc.setFont("helvetica", "bold");
+      doc.text("1. Aturan yang sering ditemui & pentingnya:", 14, y);
+      doc.setFont("helvetica", "normal");
+      y += 6;
+      const lines1 = doc.splitTextToSize(r1, 180);
+      doc.text(lines1, 14, y);
+      y += lines1.length * 6 + 8;
+
+      // Refleksi 2
+      const r2 = document.getElementById("refleksi2").value || "[Belum dijawab]";
+      doc.setFont("helvetica", "bold");
+      doc.text("2. Arti taat hukum menurut saya:", 14, y);
+      doc.setFont("helvetica", "normal");
+      y += 6;
+      const lines2 = doc.splitTextToSize(r2, 180);
+      doc.text(lines2, 14, y);
+      y += lines2.length * 6 + 10;
+
+      // Tabel Hierarki
+      doc.setFont("helvetica", "bold");
+      doc.text("Hierarki Peraturan Perundang-undangan", 14, y);
+      y += 10;
+
+      const tableBody = [];
+      const rows = document.querySelectorAll("#tabel-hierarki tbody tr");
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        const rowData = [];
+        cells.forEach((cell, idx) => {
+          if (idx === 0) {
+            rowData.push(cell.textContent.trim());
+          } else {
+            const input = cell.querySelector("input");
+            rowData.push(input ? (input.value.trim() || "-") : (cell.textContent.trim() || "-"));
+          }
+        });
+        tableBody.push(rowData);
+      });
+
+      // Tambahkan tabel dengan autoTable
+      doc.autoTable({
+        startY: y,
+        head: [["No.", "Jenis Peraturan", "Contoh"]],
+        body: tableBody,
+        theme: "grid",
+        styles: { fontSize: 9, cellPadding: 2 },
+        headStyles: { fillColor: [13, 110, 253] }
+      });
+
+      y = doc.lastAutoTable.finalY + 10;
+
+      // Kasus
+      const kasus = document.getElementById("kasus").value || "[Belum diisi]";
+      doc.setFont("helvetica", "bold");
+      doc.text("3. Kasus pelanggaran hukum:", 14, y);
+      doc.setFont("helvetica", "normal");
+      y += 6;
+      const linesKasus = doc.splitTextToSize(kasus, 180);
+      doc.text(linesKasus, 14, y);
+      y += linesKasus.length * 6 + 8;
+
+      // Solusi
+      const solusi = document.getElementById("solusi").value || "[Belum diisi]";
+      doc.setFont("helvetica", "bold");
+      doc.text("4. Solusi berdasarkan Pancasila:", 14, y);
+      doc.setFont("helvetica", "normal");
+      y += 6;
+      const linesSolusi = doc.splitTextToSize(solusi, 180);
+      doc.text(linesSolusi, 14, y);
+
+      // Generate nama file
+      const fileName = `LKPD_Pancasila_${nama.replace(/\s+/g, '_') || 'Siswa'}.pdf`;
+      doc.save(fileName);
+
+    } catch (err) {
+      console.error("Error generating PDF:", err);
+      errorMessage.textContent = "❌ Gagal membuat PDF. Pastikan Anda menggunakan browser terbaru (Chrome/Edge/Firefox).";
+    }
+  }
+</script>
+
+</body>
+</html>

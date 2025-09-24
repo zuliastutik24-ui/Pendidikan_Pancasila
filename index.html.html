@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📘 Pendidikan Pancasila X | SMAN 1 Bangorejo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --merah: #c91a3c;
+      --merah-gelap: #a01530;
+      --putih: #ffffff;
+      --abu: #f8f9fa;
+      --biru: #0d6efd;
+      --biru-muda: #e7f1ff;
+      --abu-tua: #6c757d;
+      --shadow: 0 10px 30px rgba(0,0,0,0.12);
+      --bg-body: #fafbff;
+      --card-bg: #ffffff;
+      --text-color: #333;
+      --footer-bg: linear-gradient(to right, var(--merah), var(--merah-gelap));
+    }
+
+    .dark-mode {
+      --bg-body: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #f0f0f0;
+      --abu: #2a2a2a;
+      --footer-bg: linear-gradient(to right, #8a122a, #6a0f22);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Open Sans', sans-serif;
+      background: var(--bg-body);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* Dark mode toggle button */
+    #darkModeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--biru);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--merah), #e63946);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero::before {
+      top: -50px; right: -50px; width: 200px; height: 200px;
+    }
+    .hero::after {
+      bottom: -80px; left: -60px; width: 250px; height: 250px;
+    }
+
+    .hero img {
+      height: 110px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.2);
+      padding: 10px;
+    }
+
+    .hero h1 {
+      font-size: 2.6em;
+      font-weight: 800;
+      max-width: 800px;
+      margin: 0 auto 16px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: -60px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-top: 4px solid var(--biru);
+      color: var(--text-color);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+    }
+
+    .card h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: var(--merah-gelap);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dark-mode .card h2 {
+      color: #e57373;
+    }
+
+    .card h2 i {
+      background: var(--biru);
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--biru);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.05em;
+      transition: all 0.3s ease;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+    }
+
+    .btn:hover {
+      background: #0b5ed7;
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+    }
+
+    .section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 50px;
+      box-shadow: var(--shadow);
+      color: var(--text-color);
+    }
+
+    .section h2 {
+      font-size: 1.7em;
+      color: var(--merah);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 450px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: var(--footer-bg);
+      color: white;
+      padding: 40px 20px;
+      border-radius: 24px 24px 0 0;
+      text-align: center;
+    }
+
+    footer p, footer a {
+      color: white;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin-top: 25px;
+      opacity: 0.8;
+      font-size: 0.95em;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card, .section, footer {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.0em; }
+      iframe { min-height: 350px; }
+      .container { margin-top: -40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <a href="https://ibb.co.com/wZzKGnDX" target="_blank" rel="noopener">
+      <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
+    </a>
+    <h1>Pendidikan Pancasila – Kelas X</h1>
+    <p>Menjiwai Nilai-Nilai Konstitusi dalam Kehidupan Berbangsa dan Bernegara</p>
+  </div>
+
+  <div class="container">
+
+    <div class="cards">
+      <div class="card">
+        <h2><i class="fas fa-book"></i> Modul & Materi</h2>
+        <ul>
+          <li>
+            <a href="modul-pancasila.html" class="btn" target="_blank">
+              <i class="fas fa-file-alt"></i> Modul Ajar
+            </a>
+          </li>
+          <li>
+            <a href="materi-uud-pancasila.html" class="btn" target="_blank">
+              <i class="fas fa-landmark"></i> Materi UUD 1945
+            </a>
+          </li>
+          <li>
+            <a href="LKPD_Pendidikan_Pancasila_NamaSiswa.pdf" class="btn" target="_blank">
+              <i class="fas fa-file-pdf"></i> Lembar Kerja Peserta Didik (LKPD)
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-upload"></i> Tugas & Pengumpulan</h2>
+        <p>Kerjakan LKPD dan kumpulkan tugas Anda melalui Google Form berikut:</p>
+        <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn" target="_blank">
+          <i class="fab fa-google"></i> Kumpulkan Tugas
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><i class="fas fa-table"></i> Daftar Pengumpulan Tugas</h2>
+      <p>Berikut siswa yang telah menyelesaikan dan mengumpulkan tugas:</p>
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false">
+      </iframe>
+    </div>
+
+    <footer>
+      <h3><i class="fas fa-school"></i> SMAN 1 BANGOREJO</h3>
+      <p><strong>Lokasi</strong> &nbsp; Jalan Bhayangkara No. 67, Kebondalem, Bangorejo, Banyuwangi, Jawa Timur, Indonesia</p>
+      <p><strong>Tel./Faks.</strong> &nbsp; 0333-713297</p>
+      <p><strong>Situs web</strong> &nbsp; 
+        <a href="http://sman1banyuwangi.sch.id" target="_blank" rel="noopener">sman1banyuwangi.sch.id</a>
+      </p>
+      <div class="copyright">
+        © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const toggleButton = document.getElementById('darkModeToggle');
+    const htmlRoot = document.getElementById('html-root');
+
+    // Cek preferensi pengguna
+    const userPref = localStorage.getItem('darkMode');
+    if (userPref === 'enabled') {
+      htmlRoot.classList.add('dark-mode');
+      toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      htmlRoot.classList.toggle('dark-mode');
+      const isDarkMode = htmlRoot.classList.contains('dark-mode');
+      
+      if (isDarkMode) {
+        localStorage.setItem('darkMode', 'enabled');
+        toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    });
+  </script>
+
+</body>
+</html>

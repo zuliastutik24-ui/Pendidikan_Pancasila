@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📘 Modul Ajar: Pendidikan Pancasila</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: linear-gradient(135deg, #c91a3c, #e63946);
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .tab-button {
+      padding: 12px 24px;
+      background: #f1f1f1;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #333;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .tab-button:hover {
+      background: #e0e0e0;
+    }
+
+    .tab-button.active {
+      background: #0d6efd;
+      color: white;
+      box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #0d6efd;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #eee;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfcfc;
+    }
+
+    .highlight {
+      background-color: #fff3cd;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .note {
+      background: #e7f1ff;
+      padding: 12px;
+      border-left: 4px solid #0d6efd;
+      margin: 16px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    @media (max-width: 768px) {
+      .tab-button {
+        padding: 10px 16px;
+        font-size: 0.9em;
+      }
+      header h1 {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📘 MODUL AJAR DEEP LEARNING</h1>
+  <p>Mata Pelajaran: Matematika | Bab: Pendidikan Pancasila</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-button active" data-tab="A">A. Identitas Modul</button>
+  <button class="tab-button" data-tab="B">B. Informasi Umum</button>
+  <button class="tab-button" data-tab="C">C. Desain Pembelajaran</button>
+  <button class="tab-button" data-tab="D">D. Rencana Pelaksanaan</button>
+  <button class="tab-button" data-tab="E">E. Asesmen Pembelajaran</button>
+  <button class="tab-button" data-tab="F">F. Tindak Lanjut</button>
+</div>
+
+<!-- Tab A -->
+<div id="A" class="tab-content active">
+  <h2>A. Identitas Modul</h2>
+  <ul>
+    <li><strong>Nama Sekolah</strong>: ………………………………………</li>
+    <li><strong>Nama Penyusun</strong>: ………………………………………</li>
+    <li><strong>Mata Pelajaran</strong>: Pendidikan Pancasila</li>
+    <li><strong>Kelas/Fase/Semester</strong>: X/E/Ganjil</li>
+    <li><strong>Pertemuan Ke</strong>: 9</li>
+    <li><strong>Alokasi Waktu</strong>: 2 JP (1 Pertemuan @ 90 Menit)</li>
+    <li><strong>Tahun Pelajaran</strong>: 2025/2026</li>
+  </ul>
+</div>
+
+<!-- Tab B -->
+<div id="B" class="tab-content">
+  <h2>B. Informasi Umum</h2>
+
+  <h3>1. Identifikasi Kesiapan Peserta Didik</h3>
+  <p>Peserta didik kelas X sudah memiliki pemahaman dasar mengenai nilai-nilai Pancasila dari jenjang SMP. Kebutuhan belajar mereka meliputi:</p>
+  <ul>
+    <li>Pemahaman kontekstual terhadap nilai Pancasila.</li>
+    <li>Aktivitas kolaboratif untuk mengaitkan materi dengan permasalahan aktual.</li>
+    <li>Latihan berpikir kritis dalam menilai peran Pancasila.</li>
+    <li>Diperlukan diferensiasi pembelajaran (tugas kelompok, studi kasus, diskusi).</li>
+  </ul>
+
+  <h3>2. Karakteristik Materi</h3>
+  <p>Materi <span class="highlight">Menjiwai Pancasila</span> menekankan penghayatan nilai-nilai Pancasila dalam kehidupan pribadi hingga bernegara.</p>
+  <ul>
+    <li><strong>Relevansi</strong>: Dasar negara, sumber hukum, pedoman moral.</li>
+    <li><strong>Konteks</strong>: Implementasi di era digital & multikulturalisme.</li>
+    <li><strong>Signifikansi</strong>: Membentuk generasi berkarakter, toleran, cinta tanah air.</li>
+  </ul>
+
+  <h3>3. Dimensi Profil Lulusan</h3>
+  <table>
+    <tr><th>Dimensi</th><th>Relevansi dengan Materi</th></tr>
+    <tr><td>Keimanan dan Ketakwaan</td><td>Menghayati nilai Ketuhanan dalam sila pertama.</td></tr>
+    <tr><td>Kewargaan</td><td>Cinta tanah air, taat hukum, partisipasi aktif.</td></tr>
+    <tr><td>Penalaran Kritis</td><td>Menganalisis isu sosial dengan perspektif Pancasila.</td></tr>
+    <tr><td>Kreativitas</td><td>Menyajikan gagasan implementasi Pancasila.</td></tr>
+    <tr><td>Kolaborasi</td><td>Kerja sama dalam diskusi & proyek kelompok.</td></tr>
+    <tr><td>Mandiri</td><td>Bertanggung jawab sesuai nilai Pancasila.</td></tr>
+    <tr><td>Kesehatan</td><td>Meneladani semangat gotong royong.</td></tr>
+    <tr><td>Komunikasi</td><td>Mengomunikasikan nilai Pancasila secara efektif.</td></tr>
+  </table>
+</div>
+
+<!-- Tab C -->
+<div id="C" class="tab-content">
+  <h2>C. Desain Pembelajaran</h2>
+
+  <h3>1. Capaian Pembelajaran (Pertemuan 9)</h3>
+  <p><strong>Elemen</strong>: Penghayatan dan Implementasi Pancasila<br>
+  <strong>CP</strong>: Peserta didik mampu menjelaskan makna menjiwai Pancasila, menganalisis penerapannya, dan menampilkan sikap sesuai nilai-nilai Pancasila.</p>
+
+  <h3>2. Lintas Disiplin Ilmu</h3>
+  <ul>
+    <li><strong>Sosiologi</strong> → Kohesi sosial & keberagaman.</li>
+    <li><strong>Ekonomi</strong> → Keadilan sosial & distribusi sumber daya.</li>
+    <li><strong>Sejarah</strong> → Perumusan Pancasila & relevansi kini.</li>
+    <li><strong>Teknologi Informasi</strong> → Tantangan di era digital (hoaks, intoleransi).</li>
+  </ul>
+
+  <h3>3. Tujuan Pembelajaran</h3>
+  <p>Setelah 2 JP, siswa mampu:</p>
+  <ol>
+    <li>Menjelaskan makna taat hukum dengan contoh nyata.</li>
+    <li>Menganalisis tata urutan peraturan perundang-undangan (≥80% akurat).</li>
+    <li>Menghasilkan peta konsep/infografis hubungan UUD 1945 dan peraturan di bawahnya.</li>
+    <li>Menyelesaikan tugas dalam 1 pertemuan (90 menit).</li>
+  </ol>
+
+  <div class="note">
+    <strong>Topik Kontekstual:</strong> “Taat Hukum dalam Kehidupan Sehari-hari dan Relevansi UUD NRI 1945”
+  </div>
+
+  <h3>4. Kerangka Pembelajaran Berbasis GitHub</h3>
+  <ul>
+    <li><strong>Repo Bahan Ajar</strong>: PDF, slide, instruksi tugas.</li>
+    <li><strong>Infografis</strong>: Siswa unggah ke GitHub Pages.</li>
+    <li><strong>Evaluasi Interaktif</strong>: Kuis di GitHub Pages atau Kahoot.</li>
+    <li><strong>Diskusi</strong>: Gunakan GitHub Issues/Discussions.</li>
+    <li><strong>Portofolio Digital</strong>: Repo sebagai bukti otentik hasil belajar.</li>
+  </ul>
+</div>
+
+<!-- Tab D -->
+<div id="D" class="tab-content">
+  <h2>D. Rencana Pelaksanaan Pembelajaran (Pertemuan 9)</h2>
+  <table>
+    <tr>
+      <th>Kegiatan</th>
+      <th>Deskripsi Aktivitas</th>
+      <th>Waktu</th>
+    </tr>
+    <tr>
+      <td><strong>Pendahuluan</strong></td>
+      <td>
+        - Salam, doa, sapa hangat.<br>
+        - Mindful Learning: Ingat pengalaman aturan sehari-hari.<br>
+        - Ice breaking: “Apa aturan paling sering kalian temui?”
+      </td>
+      <td>10 menit</td>
+    </tr>
+    <tr>
+      <td><strong>Inti</strong></td>
+      <td>
+        - Penjelasan UUD 1945 sebagai hukum dasar.<br>
+        - Diskusi kelompok: analisis kasus pelanggaran & hierarki hukum.<br>
+        - Presentasi hasil (lisan/visual/GitHub).
+      </td>
+      <td>70 menit</td>
+    </tr>
+    <tr>
+      <td><strong>Penutup</strong></td>
+      <td>
+        - Kesimpulan materi.<br>
+        - Refleksi: “Satu aturan yang akan saya patuhi mulai hari ini.”<br>
+        - Apresiasi & doa penutup.
+      </td>
+      <td>10 menit</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Tab E -->
+<div id="E" class="tab-content">
+  <h2>E. Asesmen Pembelajaran</h2>
+
+  <h3>1. Asesmen Awal (Diagnostik)</h3>
+  <p><strong>Format</strong>: Kuis singkat (Google Form/Kahoot) + tanya jawab<br>
+  <strong>Tujuan</strong>: Pemahaman awal tentang aturan & UUD 1945<br>
+  <strong>Instrumen</strong>: 5 PG + 2 benar/salah (contoh: “Apa hukum dasar tertinggi di Indonesia?”)</p>
+
+  <h3>2. Asesmen Proses (Formatif)</h3>
+  <ul>
+    <li>Observasi selama diskusi</li>
+    <li>Produk: Infografis hierarki hukum</li>
+    <li>Jurnal refleksi: “Apa arti taat hukum bagi saya?”</li>
+  </ul>
+
+  <h3>3. Asesmen Akhir (Sumatif)</h3>
+  <p><strong>Format</strong>: Proyek Mini – Analisis kasus pelanggaran hukum → solusi berbasis hierarki peraturan</p>
+  <p><strong>Rubrik Penilaian (0–4)</strong>:</p>
+  <ul>
+    <li>Analisis isu</li>
+    <li>Solusi logis</li>
+    <li>Kreativitas produk</li>
+    <li>Kolaborasi kelompok</li>
+    <li>Nilai Pancasila</li>
+  </ul>
+</div>
+
+<!-- Tab F -->
+<div id="F" class="tab-content">
+  <h2>F. Rencana Tindak Lanjut</h2>
+  <table>
+    <tr>
+      <th>Remedial</th>
+      <th>Pengayaan</th>
+    </tr>
+    <tr>
+      <td>
+        - Bimbingan tambahan dengan contoh konkret (aturan sekolah).<br>
+        - Tugas individu: peta konsep singkat urutan peraturan.
+      </td>
+      <td>
+        - Analisis kasus aktual (berita pelanggaran hukum).<br>
+        - Buat artikel reflektif & unggah ke GitHub repo kelas.
+      </td>
+    </tr>
+  </table>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Add active to clicked
+      button.classList.add('active');
+      const tabId = button.getAttribute('data-tab');
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
