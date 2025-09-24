@@ -62,6 +62,9 @@
     .logo-header {
       text-align: center;
       margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo-header img {
@@ -85,10 +88,31 @@
     }
 
     .map-container img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 800px;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      margin: 25px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     a {
@@ -115,6 +139,22 @@
       background: #0b5ed7;
     }
 
+    .dark-mode-toggle {
+      background: var(--card-bg);
+      border: 2px solid var(--merah);
+      color: var(--merah);
+      padding: 8px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .dark-mode-toggle:hover {
+      background: var(--merah);
+      color: white;
+    }
+
     footer {
       text-align: center;
       margin-top: 40px;
@@ -123,19 +163,33 @@
       color: var(--text-color);
       opacity: 0.8;
     }
+
+    .topic-section {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--abu);
+    }
+
+    .topic-section:last-child {
+      border-bottom: none;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <a href="index.html" class="back-btn">
-      <i class="fas fa-arrow-left"></i> Kembali ke Beranda
-    </a>
-
     <div class="logo-header">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+      </a>
+      
       <a href="https://ibb.co.com/wZzKGnDX">
         <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="SMAN1-Bangorejo-emblem">
       </a>
+      
+      <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i> Mode Gelap
+      </button>
     </div>
 
     <h1>Negara Kesatuan Republik Indonesia (NKRI)</h1>
@@ -146,68 +200,88 @@
       <p><em>Sumber: Wikimedia Commons – Peta NKRI</em></p>
     </div>
 
-    <h2>1. Hak dan Kewajiban Warga Negara Indonesia</h2>
-    <p>
-      Sebagai warga negara, setiap individu memiliki hak dan kewajiban yang seimbang:
-    </p>
-    <ul>
-      <li><strong>Hak:</strong> mendapatkan pendidikan, kebebasan berpendapat, perlindungan hukum, dll.</li>
-      <li><strong>Kewajiban:</strong> membayar pajak, menaati hukum, membela negara, menjaga keutuhan NKRI.</li>
-    </ul>
-    <p>
-      Di lingkungan sekolah, ini berarti: disiplin, menghormati guru, menjaga fasilitas, dan aktif dalam kegiatan positif.
-    </p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/Vc3VQXytock?si=xqha36hniBYCnCqU" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+      </iframe>
+    </div>
 
-    <h2>2. Peran dan Kedudukan Warga Negara Indonesia</h2>
-    <p>
-      WNI adalah subjek utama dalam kehidupan berbangsa dan bernegara. Peran Anda meliputi:
-    </p>
-    <ul>
-      <li>Menjadi agen perubahan sosial</li>
-      <li>Menjaga nilai-nilai luhur bangsa</li>
-      <li>Berpartisipasi dalam pembangunan nasional</li>
-      <li>Menghargai keberagaman sebagai kekuatan bangsa</li>
-    </ul>
+    <div class="topic-section">
+      <h2>1. Hak dan Kewajiban Warga Negara Indonesia</h2>
+      <p>
+        Sebagai warga negara, setiap individu memiliki hak dan kewajiban yang seimbang:
+      </p>
+      <ul>
+        <li><strong>Hak:</strong> mendapatkan pendidikan, kebebasan berpendapat, perlindungan hukum, dll.</li>
+        <li><strong>Kewajiban:</strong> membayar pajak, menaati hukum, membela negara, menjaga keutuhan NKRI.</li>
+      </ul>
+      <p>
+        Di lingkungan sekolah, ini berarti: disiplin, menghormati guru, menjaga fasilitas, dan aktif dalam kegiatan positif.
+      </p>
+    </div>
 
-    <h2>3. Sistem Pertahanan dan Keamanan Negara</h2>
-    <p>
-      Indonesia menganut sistem pertahanan dan keamanan berbasis <strong>“Pertahanan Semesta”</strong>, yaitu:
-    </p>
-    <ul>
-      <li>Seluruh rakyat menjadi kekuatan pertahanan</li>
-      <li>TNI sebagai komponen utama</li>
-      <li>Polri sebagai penjaga keamanan dalam negeri</li>
-      <li>Peran aktif masyarakat melalui Siskamling, Linmas, dll.</li>
-    </ul>
-    <p>
-      Setiap warga negara wajib ikut serta dalam upaya bela negara (UUD 1945 Pasal 27 ayat 3 dan Pasal 30).
-    </p>
+    <div class="topic-section">
+      <h2>2. Peran dan Kedudukan Warga Negara Indonesia</h2>
+      <p>
+        WNI adalah subjek utama dalam kehidupan berbangsa dan bernegara. Peran Anda meliputi:
+      </p>
+      <ul>
+        <li>Menjadi agen perubahan sosial</li>
+        <li>Menjaga nilai-nilai luhur bangsa</li>
+        <li>Berpartisipasi dalam pembangunan nasional</li>
+        <li>Menghargai keberagaman sebagai kekuatan bangsa</li>
+      </ul>
+    </div>
 
-    <h2>4. Peran Indonesia dalam Hubungan Antarbangsa</h2>
-    <p>
-      Indonesia aktif dalam diplomasi internasional dengan prinsip:
-    </p>
-    <ul>
-      <li><strong>Bebas aktif</strong> – tidak memihak blok manapun, tetapi aktif menjaga perdamaian dunia</li>
-      <li>Anggota PBB, ASEAN, G20, dan OKI</li>
-      <li>Pelopor Konferensi Asia-Afrika (1955)</li>
-      <li>Mendukung dekolonisasi dan hak asasi manusia global</li>
-    </ul>
+    <div class="topic-section">
+      <h2>3. Sistem Pertahanan dan Keamanan Negara</h2>
+      <p>
+        Indonesia menganut sistem pertahanan dan keamanan berbasis <strong>"Pertahanan Semesta"</strong>, yaitu:
+      </p>
+      <ul>
+        <li>Seluruh rakyat menjadi kekuatan pertahanan</li>
+        <li>TNI sebagai komponen utama</li>
+        <li>Polri sebagai penjaga keamanan dalam negeri</li>
+        <li>Peran aktif masyarakat melalui Siskamling, Linmas, dll.</li>
+      </ul>
+      <p>
+        Setiap warga negara wajib ikut serta dalam upaya bela negara (UUD 1945 Pasal 27 ayat 3 dan Pasal 30).
+      </p>
+    </div>
 
-    <h2>5. Nilai Pancasila dalam Pembangunan Nasional</h2>
-    <p>
-      Pembangunan nasional harus mencerminkan nilai-nilai Pancasila:
-    </p>
-    <ul>
-      <li><strong>Sila 1:</strong> Pembangunan berbasis moral dan etika</li>
-      <li><strong>Sila 2:</strong> Menghargai HAM dan keadilan sosial</li>
-      <li><strong>Sila 3:</strong> Menjaga persatuan dalam program pembangunan</li>
-      <li><strong>Sila 4:</strong> Musyawarah dalam perencanaan pembangunan</li>
-      <li><strong>Sila 5:</strong> Pemerataan hasil pembangunan untuk seluruh rakyat</li>
-    </ul>
-    <p>
-      Tanpa Pancasila, pembangunan hanya menguntungkan segelintir orang.
-    </p>
+    <div class="topic-section">
+      <h2>4. Peran Indonesia dalam Hubungan Antarbangsa</h2>
+      <p>
+        Indonesia aktif dalam diplomasi internasional dengan prinsip:
+      </p>
+      <ul>
+        <li><strong>Bebas aktif</strong> – tidak memihak blok manapun, tetapi aktif menjaga perdamaian dunia</li>
+        <li>Anggota PBB, ASEAN, G20, dan OKI</li>
+        <li>Pelopor Konferensi Asia-Afrika (1955)</li>
+        <li>Mendukung dekolonisasi dan hak asasi manusia global</li>
+      </ul>
+    </div>
+
+    <div class="topic-section">
+      <h2>5. Nilai Pancasila dalam Pembangunan Nasional</h2>
+      <p>
+        Pembangunan nasional harus mencerminkan nilai-nilai Pancasila:
+      </p>
+      <ul>
+        <li><strong>Sila 1:</strong> Pembangunan berbasis moral dan etika</li>
+        <li><strong>Sila 2:</strong> Menghargai HAM dan keadilan sosial</li>
+        <li><strong>Sila 3:</strong> Menjaga persatuan dalam program pembangunan</li>
+        <li><strong>Sila 4:</strong> Musyawarah dalam perencanaan pembangunan</li>
+        <li><strong>Sila 5:</strong> Pemerataan hasil pembangunan untuk seluruh rakyat</li>
+      </ul>
+      <p>
+        Tanpa Pancasila, pembangunan hanya menguntungkan segelintir orang.
+      </p>
+    </div>
 
     <footer>
       <p>© 2025 SMAN 1 Bangorejo – Pendidikan Pancasila Kelas X</p>
@@ -215,11 +289,29 @@
   </div>
 
   <script>
-    // Terapkan dark mode jika diaktifkan di localStorage
+    // Fungsi untuk toggle dark mode
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlRoot = document.getElementById('html-root');
+    
+    // Cek preferensi dark mode di localStorage
     const userPref = localStorage.getItem('darkMode');
     if (userPref === 'enabled') {
-      document.getElementById('html-root').classList.add('dark-mode');
+      htmlRoot.classList.add('dark-mode');
+      darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Mode Terang';
     }
+    
+    // Event listener untuk tombol dark mode
+    darkModeToggle.addEventListener('click', () => {
+      htmlRoot.classList.toggle('dark-mode');
+      
+      if (htmlRoot.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Mode Terang';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Mode Gelap';
+      }
+    });
   </script>
 
 </body>
