@@ -159,51 +159,6 @@
       opacity: 0.95;
     }
 
-    /* Leaders Section */
-    .leaders-hero {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .leader-card-hero {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: var(--transition);
-      max-width: 200px;
-      backdrop-filter: blur(10px);
-    }
-
-    .leader-card-hero:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    .leader-photo-hero {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 0.5rem;
-      border: 3px solid var(--accent);
-    }
-
-    .leader-name-hero {
-      font-weight: bold;
-      margin-bottom: 0.2rem;
-      color: var(--accent);
-    }
-
-    .leader-position-hero {
-      font-size: 0.9rem;
-      color: var(--white);
-    }
-
     /* Search Box */
     .search-container {
       max-width: 600px;
@@ -269,7 +224,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-bottom: 3rem;
     }
@@ -467,6 +422,12 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
@@ -499,10 +460,6 @@
         bottom: 1rem;
         right: 1rem;
       }
-
-      .leaders-hero {
-        gap: 1rem;
-      }
     }
 
     @media (max-width: 480px) {
@@ -520,15 +477,6 @@
       
       .tugas-section {
         padding: 1.5rem;
-      }
-      
-      .leader-card-hero {
-        max-width: 150px;
-      }
-      
-      .leader-photo-hero {
-        width: 100px;
-        height: 100px;
       }
     }
 
@@ -583,23 +531,6 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <!-- Foto Presiden dan Wakil Presiden -->
-        <div class="leaders-hero">
-          <div class="leader-card-hero">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Prabowo_Subianto_%28cropped%29.jpg/220px-Prabowo_Subianto_%28cropped%29.jpg" 
-                 alt="Presiden Prabowo Subianto" class="leader-photo-hero">
-            <div class="leader-name-hero">Prabowo Subianto</div>
-            <div class="leader-position-hero">Presiden Indonesia</div>
-          </div>
-          
-          <div class="leader-card-hero">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gibran_Rakabuming_Raka.jpg/220px-Gibran_Rakabuming_Raka.jpg" 
-                 alt="Wakil Presiden Gibran Rakabuming Raka" class="leader-photo-hero">
-            <div class="leader-name-hero">Gibran Rakabuming Raka</div>
-            <div class="leader-position-hero">Wakil Presiden Indonesia</div>
-          </div>
-        </div>
-        
         <h2>Menjiwai Nilai-Nilai Konstitusi</h2>
         <p>Membangun karakter bangsa melalui pemahaman mendalam tentang Pancasila dan UUD 1945 dalam kehidupan berbangsa dan bernegara</p>
         
@@ -654,7 +585,6 @@
           </a>
         </div>
 
-        <!-- Kartu Baru -->
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-history"></i>
@@ -663,6 +593,30 @@
           <p>Jelajahi perjalanan sejarah konstitusi Indonesia dari masa ke masa, termasuk amandemen UUD 1945.</p>
           <a href="sejarah-konstitusi.pdf" class="btn btn-full" target="_blank">
             Pelajari Sejarah <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+        
+        <!-- Kartu Baru 1: Bhinneka Tunggal Ika -->
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Bhinneka Tunggal Ika</h3>
+          <p>Peserta didik mampu menyajikan asal usul dan makna semboyan Bhinneka Tunggal Ika sebagai modal sosial; membangun harmoni dalam keberagaman; dan mengenal gotong royong sebagai perwujudan sistem ekonomi Pancasila yang inklusif dan berkeadilan.</p>
+          <a href="bhinneka-tunggal-ika.html" class="btn btn-full" target="_blank">
+            Pelajari <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+        
+        <!-- Kartu Baru 2: Negara Kesatuan Republik Indonesia -->
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-flag"></i>
+          </div>
+          <h3>Negara Kesatuan Republik Indonesia</h3>
+          <p>Peserta didik mampu menerapkan perilaku sesuai dengan hak dan kewajiban sebagai warga sekolah, warga masyarakat dan warga negara; serta memahami peran dan kedudukannya sebagai Warga Negara Indonesia; memahami sistem pertahanan dan keamanan negara; menganalisis peran Indonesia dalam hubungan antarbangsa dan negara; serta menguraikan nilai-nilai Pancasila yang harus diwujudkan dalam pembangunan nasional.</p>
+          <a href="nkri.html" class="btn btn-full" target="_blank">
+            Pelajari <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
       </div>
@@ -702,12 +656,6 @@
         <p><a href="materi-uud-pancasila.html"><i class="fas fa-arrow-right"></i> Materi UUD 1945</a></p>
         <p><a href="lkpd_pancasila.pdf"><i class="fas fa-arrow-right"></i> LKPD</a></p>
         <p><a href="https://forms.gle/UpZXSCgKnxPbpvph9"><i class="fas fa-arrow-right"></i> Kumpulkan Tugas</a></p>
-      </div>
-      
-      <div class="footer-section">
-        <h3>Kontak</h3>
-        <p><a href="http://sman1banyuwangi.sch.id" target="_blank"><i class="fas fa-globe"></i> sman1banyuwangi.sch.id</a></p>
-        <p><a href="http://sman1banyuwangi.sch.id" target="_blank"><i class="fas fa-envelope"></i> sman1banyuwangi.sch.id</a></p>
       </div>
     </div>
     
