@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --primary: #c91a3c; /* Merah */
+      --primary: #c91a3c;
       --primary-dark: #a01530;
       --secondary: #0d6efd;
       --accent: #ffd700;
@@ -64,7 +64,29 @@
         url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 Q40,5 60,20 T100,20 M20,50 Q40,35 60,50 T100,50 M20,80 Q40,65 60,80 T100,80' stroke='%23e63946' stroke-width='0.5' fill='none' opacity='0.04'/%3E%3C/svg%3E");
     }
 
-    /* Header & Navigation */
+    /* Print-friendly */
+    @media print {
+      header, footer, .dark-mode-toggle, .search-container, .btn, .iframe-container {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+      }
+      .card, .hero, .tugas-section {
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+      }
+      main {
+        padding: 0.5cm !important;
+      }
+      .section-title h2::after {
+        background: black !important;
+      }
+    }
+
     header {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: var(--white);
@@ -114,6 +136,9 @@
     .logo-text h1 {
       font-size: 1.4rem;
       margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .logo-text p {
@@ -121,14 +146,12 @@
       opacity: 0.9;
     }
 
-    /* Main Content */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
     }
 
-    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: var(--white);
@@ -139,6 +162,10 @@
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow);
+    }
+
+    .hero h2, .hero p {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
 
     .hero::before {
@@ -175,7 +202,6 @@
       opacity: 0.95;
     }
 
-    /* Search Box */
     .search-container {
       max-width: 600px;
       margin: 0 auto;
@@ -212,7 +238,6 @@
       background: #0b5ed7;
     }
 
-    /* Cards Section */
     .section-title {
       text-align: center;
       margin-bottom: 2rem;
@@ -321,7 +346,6 @@
       width: 100%;
     }
 
-    /* Tugas Section */
     .tugas-section {
       background: var(--white);
       border-radius: 15px;
@@ -357,9 +381,9 @@
       height: 100%;
       border: none;
       min-height: 400px;
+      loading: lazy;
     }
 
-    /* Footer */
     footer {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: var(--white);
@@ -416,7 +440,6 @@
       font-size: 0.9rem;
     }
 
-    /* Dark Mode Toggle */
     .dark-mode-toggle {
       position: fixed;
       bottom: 2rem;
@@ -441,60 +464,27 @@
       transform: scale(1.1);
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
       }
-      
-      .hero h2 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1rem;
-      }
-      
-      .tugas-header {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      
-      .footer-content {
-        grid-template-columns: 1fr;
-      }
-      
-      .dark-mode-toggle {
-        bottom: 1rem;
-        right: 1rem;
-      }
+      .hero h2 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .tugas-header { flex-direction: column; align-items: stretch; }
+      .footer-content { grid-template-columns: 1fr; }
+      .dark-mode-toggle { bottom: 1rem; right: 1rem; }
     }
 
     @media (max-width: 480px) {
-      main {
-        padding: 1rem;
-      }
-      
-      .hero {
-        padding: 2rem 1rem;
-      }
-      
-      .card {
-        padding: 1.5rem;
-      }
-      
-      .tugas-section {
-        padding: 1.5rem;
-      }
-      
-      .iframe-container {
-        min-height: 300px;
-      }
+      main { padding: 1rem; }
+      .hero { padding: 2rem 1rem; }
+      .card { padding: 1.5rem; }
+      .tugas-section { padding: 1.5rem; }
+      .iframe-container { min-height: 300px; }
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -503,34 +493,37 @@
     .card, .tugas-section, .hero {
       animation: fadeIn 0.6s ease-out;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="header-content">
       <div class="logo-container">
         <div class="sma-logo">
-          <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Logo SMAN 1 Bangorejo">
+          <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Lambang SMAN 1 Bangorejo: Garuda Pancasila dengan tulisan SMAN 1 Bangorejo">
         </div>
         <div class="logo-text">
-          <h1>Pendidikan Pancasila</h1>
+          <h1>
+            <i class="fas fa-flag" style="color:#fff; font-size:1.1rem;"></i>
+            Pendidikan Pancasila
+          </h1>
           <p>Kelas X - SMAN 1 Bangorejo</p>
         </div>
       </div>
-      <!-- Tombol Login Siswa DIHAPUS sesuai permintaan -->
+      <!-- Tombol Login Siswa DIHAPUS -->
     </div>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
         <h2>Menjiwai Nilai-Nilai Konstitusi</h2>
         <p>Membangun karakter bangsa melalui pemahaman mendalam tentang Pancasila dan UUD 1945 dalam kehidupan berbangsa dan bernegara</p>
-        
         <div class="search-container">
           <div class="search-box">
             <input type="text" id="searchInput" placeholder="Cari materi (hierarki hukum, UUD 1945, dll)">
@@ -542,101 +535,102 @@
       </div>
     </section>
 
-    <!-- Materials Section -->
     <section class="mb-2">
       <div class="section-title">
         <h2><i class="fas fa-book-open"></i> Materi Pembelajaran</h2>
       </div>
-      
       <div class="cards">
+        <!-- Kartu LKPD (diperbarui) -->
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <h3>Lembar Kerja (LKPD)</h3>
+          <p>
+            Download lembar kerja peserta didik setelah mengerjakan tugas untuk mengukur pemahamanmu.
+            <span style="display:inline-block; background:#e9ecef; color:#c91a3c; padding:3px 8px; border-radius:4px; font-size:0.85em; font-weight:600; margin-top:0.5rem;">
+              Unggah hasil via Google Form
+            </span>
+          </p>
+          <a href="lkpd_pancasila.pdf" class="btn btn-full" target="_blank" aria-label="Unduh Lembar Kerja Peserta Didik dalam format PDF">
+            Download <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Kartu lain tetap sama -->
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-file-alt"></i>
           </div>
           <h3>Modul Ajar</h3>
           <p>Akses modul pembelajaran lengkap untuk memahami konsep Pancasila dan UUD 1945 secara mendalam.</p>
-          <a href="modul-pancasila.html" class="btn btn-full" target="_blank">
-            Buka Modul <i class="fas fa-external-link-alt"></i>
-          </a>
+          <a href="modul-pancasila.html" class="btn btn-full" target="_blank">Buka Modul <i class="fas fa-external-link-alt"></i></a>
         </div>
-        
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-landmark"></i>
           </div>
           <h3>Materi UUD 1945</h3>
           <p>Pelajari isi dan makna Undang-Undang Dasar 1945 sebagai konstitusi negara Indonesia.</p>
-          <a href="materi-uud-pancasila.html" class="btn btn-full" target="_blank">
-            Pelajari <i class="fas fa-external-link-alt"></i>
-          </a>
+          <a href="materi-uud-pancasila.html" class="btn btn-full" target="_blank">Pelajari <i class="fas fa-external-link-alt"></i></a>
         </div>
-        
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-file-pdf"></i>
-          </div>
-          <h3>Lembar Kerja (LKPD)</h3>
-          <p>Download lembar kerja peserta didik setelah mengerjakan tugas untuk mengukur pemahamanmu.</p>
-          <a href="lkpd_pancasila.pdf" class="btn btn-full" target="_blank">
-            Download <i class="fas fa-download"></i>
-          </a>
-        </div>
-
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-history"></i>
           </div>
           <h3>Sejarah Konstitusi</h3>
           <p>Jelajahi perjalanan sejarah konstitusi Indonesia dari masa ke masa, termasuk amandemen UUD 1945.</p>
-          <a href="sejarah-konstitusi.pdf" class="btn btn-full" target="_blank">
-            Pelajari Sejarah <i class="fas fa-external-link-alt"></i>
-          </a>
+          <a href="sejarah-konstitusi.pdf" class="btn btn-full" target="_blank">Pelajari Sejarah <i class="fas fa-external-link-alt"></i></a>
         </div>
-        
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-handshake"></i>
           </div>
           <h3>Bhinneka Tunggal Ika</h3>
           <p>Telusuri asal-usul dan makna Bhinneka Tunggal Ika, serta peran gotong royong dalam ekonomi Pancasila yang adil dan inklusif.</p>
-          <a href="bhinneka-tunggal-ika.html" class="btn btn-full" target="_blank">
-            Pelajari <i class="fas fa-external-link-alt"></i>
-          </a>
+          <a href="bhinneka-tunggal-ika.html" class="btn btn-full" target="_blank">Pelajari <i class="fas fa-external-link-alt"></i></a>
         </div>
-        
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-flag"></i>
           </div>
           <h3>Negara Kesatuan Republik Indonesia</h3>
           <p>Pahami hak dan kewajiban sebagai warga, peran Indonesia dalam dunia internasional, serta nilai Pancasila dalam pembangunan nasional.</p>
-          <a href="nkri.html" class="btn btn-full" target="_blank">
-            Pelajari <i class="fas fa-external-link-alt"></i>
-          </a>
+          <a href="nkri.html" class="btn btn-full" target="_blank">Pelajari <i class="fas fa-external-link-alt"></i></a>
         </div>
       </div>
     </section>
 
-    <!-- Tugas Section -->
     <section class="tugas-section">
       <div class="tugas-header">
         <h2><i class="fas fa-tasks"></i> Pengumpulan Tugas</h2>
-        <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn" target="_blank">
+        <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn" target="_blank" aria-label="Buka Google Form untuk mengumpulkan tugas">
           <i class="fab fa-google"></i> Kumpulkan Tugas
         </a>
       </div>
       
-      <p>Kerjakan LKPD dan kumpulkan tugas Anda melalui Google Form. Berikut daftar siswa yang telah mengumpulkan:</p>
+      <p>Kerjakan LKPD, lalu unggah hasilnya melalui Google Form.</p>
+
+      <!-- QR Code -->
+      <div style="text-align:center; margin: 1.5rem 0;">
+        <img 
+          src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/UpZXSCgKnxPbpvph9" 
+          alt="QR Code untuk form pengumpulan tugas"
+          style="border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <p style="font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem;">
+          Scan dengan kamera HP untuk buka form
+        </p>
+      </div>
       
       <div class="iframe-container mt-2">
         <iframe 
-          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false">
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false"
+          loading="lazy">
         </iframe>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-section">
@@ -644,7 +638,6 @@
         <p>Jalan Bhayangkara No. 67, Kebondalem, Bangorejo, Banyuwangi, Jawa Timur, Indonesia</p>
         <p><i class="fas fa-phone"></i> Tel./Faks: 0333-713297</p>
       </div>
-      
       <div class="footer-section">
         <h3>Link Cepat</h3>
         <p><a href="modul-pancasila.html"><i class="fas fa-arrow-right"></i> Modul Ajar</a></p>
@@ -653,19 +646,16 @@
         <p><a href="https://forms.gle/UpZXSCgKnxPbpvph9"><i class="fas fa-arrow-right"></i> Kumpulkan Tugas</a></p>
       </div>
     </div>
-    
     <div class="copyright">
       © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X
     </div>
   </footer>
 
-  <!-- Dark Mode Toggle -->
   <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
     <i class="fas fa-moon"></i>
   </button>
 
   <script>
-    // Dark Mode Toggle
     const toggleButton = document.getElementById('darkModeToggle');
     const htmlRoot = document.getElementById('html-root');
     const userPref = localStorage.getItem('darkMode');
@@ -701,7 +691,6 @@
           }
         });
       }, { threshold: 0.1 });
-      
       cards.forEach(card => observer.observe(card));
     });
   </script>
