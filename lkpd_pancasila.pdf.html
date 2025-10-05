@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LKPD - Pendidikan Pancasila</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f8f9fa;
       color: #333;
-      padding: 20px;
+      padding: 15px;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .container {
       max-width: 900px;
       margin: 0 auto;
     }
     .header {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       padding: 15px;
       background: linear-gradient(135deg, #c91a3c, #e63946);
       color: white;
@@ -23,67 +30,89 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
     .header h1 {
-      font-size: 1.6em;
+      font-size: 1.4em;
       margin-bottom: 8px;
     }
     .header p {
-      font-size: 1em;
+      font-size: 0.9em;
+      margin: 5px 0;
     }
     .section {
       background: white;
-      padding: 20px;
-      margin-bottom: 20px;
+      padding: 15px;
+      margin-bottom: 15px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     h2 {
       color: #0d6efd;
-      margin-bottom: 15px;
-      padding-bottom: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
       border-bottom: 1px solid #eee;
+      font-size: 1.2em;
+    }
+    h3 {
+      color: #0d6efd;
+      margin: 15px 0 10px;
+      font-size: 1.1em;
     }
     label {
       display: block;
-      margin: 12px 0 6px;
+      margin: 10px 0 5px;
       font-weight: 600;
     }
-    textarea, input[type="text"] {
+    textarea, input[type="text"], select {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-family: inherit;
-      resize: vertical;
+      font-size: 16px; /* Mencegah zoom pada iOS */
     }
     textarea {
       min-height: 80px;
+      resize: vertical;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 15px 0;
+      margin: 12px 0;
+      font-size: 0.85em;
     }
     th, td {
       border: 1px solid #999;
-      padding: 10px;
+      padding: 8px;
       text-align: left;
     }
     th {
       background-color: #f1f8ff;
     }
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
     .btn {
       background: #0d6efd;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 20px;
       font-size: 16px;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
-      display: inline-block;
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
     }
     .btn:hover {
       background: #0b5ed7;
+    }
+    .btn-portrait {
+      background: #198754;
+    }
+    .btn-landscape {
+      background: #fd7e14;
     }
     .error {
       color: red;
@@ -92,196 +121,227 @@
     }
     .divider {
       text-align: center;
-      margin: 20px 0;
+      margin: 15px 0;
       color: #666;
       font-weight: bold;
+    }
+    .instruction {
+      background: #e7f1ff;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+    .mobile-note {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 6px;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+    @media (max-width: 480px) {
+      table {
+        font-size: 0.75em;
+      }
+      th, td {
+        padding: 5px;
+      }
+      .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>📘 LEMBAR KERJA PESERTA DIDIK (LKPD)</h1>
-  <p>Mata Pelajaran: Pendidikan Pancasila | Kelas: X | Pertemuan ke-9</p>
-</div>
+<div class="container">
+  <div class="header">
+    <h1>📘 LEMBAR KERJA PESERTA DIDIK (LKPD)</h1>
+    <p>Mata Pelajaran: Pendidikan Pancasila | Kelas: X | Pertemuan ke-9</p>
+  </div>
 
-<div class="section">
-  <h2>Data Diri Peserta Didik</h2>
-  <label>Nama Lengkap:</label>
-  <input type="text" id="nama" placeholder="Isi nama lengkap Anda">
+  <div class="mobile-note">
+    <strong>📱 Petunjuk Mobile:</strong> LKPD ini telah dioptimalkan untuk ponsel. Untuk hasil terbaik saat mengunduh PDF, gunakan orientasi landscape untuk tabel yang lebar.
+  </div>
 
-  <label>Kelas:</label>
-  <input type="text" id="kelas" value="X" readonly>
+  <div class="section">
+    <h2>Data Diri Peserta Didik</h2>
+    <label>Nama Lengkap:</label>
+    <input type="text" id="nama" placeholder="Isi nama lengkap Anda">
 
-  <label>Tanggal:</label>
-  <input type="text" id="tanggal" placeholder="Contoh: 5 Oktober 2025">
-</div>
+    <label>Kelas:</label>
+    <input type="text" id="kelas" value="X" readonly>
 
-<div class="divider">________________________________________</div>
-
-<div class="section">
-  <h2>📄 LKPD BAB: UUD NRI TAHUN 1945</h2>
-  <p><strong>LEMBAR KERJA PESERTA DIDIK (LKPD)</strong><br>
-  Mata Pelajaran		: Pendidikan Pancasila<br>
-  Kelas/Fase/Semester	: X / Fase E / Ganjil<br>
-  Bab				: Undang-Undang Dasar Negara Republik Indonesia Tahun 1945<br>
-  Pertemuan Ke		: 9<br>
-  Alokasi Waktu		: 2 JP (1 pertemuan @ 90 menit)<br>
-  Tahun Pelajaran		: 2025 / 2026<br>
-  Media Pendukung		: Handphone / Laptop, GitHub Repo Kelas, Google Form LKPD</p>
-</div>
-
-<div class="divider">________________________________________</div>
-
-<div class="section">
-  <h2>A. Kompetensi & Tujuan Pembelajaran</h2>
-  <p><strong>Capaian Pembelajaran (CP):</strong><br>
-  Peserta didik mampu menerapkan perilaku taat hukum berdasarkan peraturan yang berlaku di masyarakat, serta menganalisis tata urutan peraturan perundang-undangan di Indonesia.</p>
-  <p><strong>Tujuan LKPD:</strong><br>
-  Melalui kegiatan eksploratif, kolaboratif, dan digital interaktif, peserta didik diharapkan dapat:<br>
-  1. Menjelaskan pengertian dan kedudukan UUD NRI Tahun 1945 sebagai hukum dasar tertulis.<br>
-  2. Mengidentifikasi tata urutan peraturan perundang-undangan di Indonesia berdasarkan UU No. 12 Tahun 2011 jo. UU No. 13 Tahun 2022.<br>
-  3. Menyajikan hasil analisis tata urutan peraturan dalam bentuk infografis digital kolaboratif.<br>
-  4. Menunjukkan sikap taat aturan dan gotong royong dalam diskusi kelompok.</p>
-</div>
-
-<div class="divider">________________________________________</div>
-
-<div class="section">
-  <h2>B. Petunjuk Pengerjaan</h2>
-  <ol>
-    <li>Bacalah materi “UUD NRI Tahun 1945” pada modul ajar dan repositori digital GitHub kelas.</li>
-    <li>Laksanakan kegiatan secara berkelompok (4–5 orang per kelompok).</li>
-    <li>Gunakan handphone atau laptop untuk membuat dan mengunggah hasil kerja ke GitHub Repo kelas sesuai instruksi guru.</li>
-    <li>Tulis hasil refleksi pribadi pada Google Form LKPD Digital yang disediakan guru.</li>
-    <li>Gunakan bahasa yang sopan, efektif, dan argumentatif dalam menjawab.</li>
-  </ol>
-</div>
-
-<div class="divider">________________________________________</div>
-
-<div class="section">
-  <h2>C. Kegiatan Pembelajaran</h2>
-  
-  <h3>Langkah 1 — Memahami Konsep (Understanding)</h3>
-  <p><strong>📘 Tugas 1:</strong><br>
-  Bacalah Pembukaan UUD 1945 dan Pasal 1–3 UUD NRI Tahun 1945.<br>
-  Tuliskan hasil pemahaman Anda dalam tabel berikut:</p>
-  
-  <table id="tabel-pemahaman">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Pokok Pikiran / Pasal</th>
-        <th>Makna dalam Kehidupan Berbangsa</th>
-        <th>Contoh Penerapan di Sekolah</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td><input type="text" placeholder="Contoh: Pembukaan Alinea IV"></td><td><textarea placeholder="Makna..."></textarea></td><td><textarea placeholder="Contoh..."></textarea></td></tr>
-      <tr><td>2</td><td><input type="text" placeholder="Contoh: Pasal 1 Ayat (2)"></td><td><textarea placeholder="Makna..."></textarea></td><td><textarea placeholder="Contoh..."></textarea></td></tr>
-    </tbody>
-  </table>
-  <p><em>💡 Petunjuk: Diskusikan bersama kelompok Anda dan bandingkan dengan nilai-nilai Pancasila yang relevan.</em></p>
+    <label>Tanggal:</label>
+    <input type="text" id="tanggal" placeholder="Contoh: 5 Oktober 2025">
+  </div>
 
   <div class="divider">________________________________________</div>
 
-  <h3>Langkah 2 — Menganalisis Hierarki Hukum (Analyzing)</h3>
-  <p><strong>📗 Tugas 2:</strong><br>
-  Berdasarkan UU No. 12 Tahun 2011 jo. UU No. 13 Tahun 2022, susunlah bagan “Tata Urutan Peraturan Perundang-undangan di Indonesia.”</p>
-  
-  <table id="tabel-hierarki">
-    <thead>
-      <tr>
-        <th>Jenjang</th>
-        <th>Jenis Peraturan</th>
-        <th>Contoh Nyata</th>
-        <th>Keterangan / Hubungan dengan UUD 1945</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Undang-Undang Dasar NRI 1945</td><td></td><td></td></tr>
-      <tr><td>2</td><td><input type="text" value="Ketetapan MPR"></td><td><input type="text"></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
-      <tr><td>3</td><td><input type="text" value="Undang-Undang / Perppu"></td><td><input type="text"></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
-      <tr><td>4</td><td><input type="text" value="Peraturan Pemerintah"></td><td><input type="text"></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
-      <tr><td>5</td><td><input type="text" value="Peraturan Presiden"></td><td><input type="text"></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
-      <tr><td>6</td><td><input type="text" value="Perda Provinsi"></td><td><input type="text"></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
-      <tr><td>7</td><td><input type="text" value="Perda Kabupaten/Kota"></td><td><input type="text"></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
-    </tbody>
-  </table>
-  <p><em>💻 Gunakan Canva/Figma untuk membuat bagan digital dan unggah ke GitHub kelompok Anda.</em></p>
+  <div class="section">
+    <h2>📄 LKPD BAB: UUD NRI TAHUN 1945</h2>
+    <p><strong>LEMBAR KERJA PESERTA DIDIK (LKPD)</strong><br>
+    Mata Pelajaran		: Pendidikan Pancasila<br>
+    Kelas/Fase/Semester	: X / Fase E / Ganjil<br>
+    Bab				: Undang-Undang Dasar Negara Republik Indonesia Tahun 1945<br>
+    Pertemuan Ke		: 9<br>
+    Alokasi Waktu		: 2 JP (1 pertemuan @ 90 menit)<br>
+    Tahun Pelajaran		: 2025 / 2026<br>
+    Media Pendukung		: Handphone / Laptop, GitHub Repo Kelas, Google Form LKPD</p>
+  </div>
 
   <div class="divider">________________________________________</div>
 
-  <h3>Langkah 3 — Mencipta (Creating)</h3>
-  <p><strong>📙 Tugas 3:</strong><br>
-  Buatlah infografis digital berjudul “Hubungan UUD 1945 dengan Peraturan di Bawahnya”.</p>
-  <p><strong>Kriteria:</strong><br>
-  • Menampilkan hierarki hukum secara visual.<br>
-  • Memuat minimal 3 contoh nyata penerapan hukum.<br>
-  • Mencantumkan logo kelompok dan sumber referensi.</p>
-  <p><em>💬 Setelah diunggah ke GitHub Repo kelas:<br>
-  1. Berikan komentar konstruktif pada karya kelompok lain (fitur issues).<br>
-  2. Diskusikan kelebihan dan perbaikan yang bisa dilakukan.</em></p>
+  <div class="section">
+    <h2>A. Kompetensi & Tujuan Pembelajaran</h2>
+    <p><strong>Capaian Pembelajaran (CP):</strong><br>
+    Peserta didik mampu menerapkan perilaku taat hukum berdasarkan peraturan yang berlaku di masyarakat, serta menganalisis tata urutan peraturan perundang-undangan di Indonesia.</p>
+    <p><strong>Tujuan LKPD:</strong><br>
+    Melalui kegiatan eksploratif, kolaboratif, dan digital interaktif, peserta didik diharapkan dapat:<br>
+    1. Menjelaskan pengertian dan kedudukan UUD NRI Tahun 1945 sebagai hukum dasar tertulis.<br>
+    2. Mengidentifikasi tata urutan peraturan perundang-undangan di Indonesia berdasarkan UU No. 12 Tahun 2011 jo. UU No. 13 Tahun 2022.<br>
+    3. Menyajikan hasil analisis tata urutan peraturan dalam bentuk infografis digital kolaboratif.<br>
+    4. Menunjukkan sikap taat aturan dan gotong royong dalam diskusi kelompok.</p>
+  </div>
 
   <div class="divider">________________________________________</div>
 
-  <h3>Langkah 4 — Refleksi Pribadi (Reflecting)</h3>
-  <p><strong>📒 Tugas 4 (Individu):</strong><br>
-  Isi refleksi pribadi melalui Google Form LKPD Digital dengan menjawab:</p>
-  <ol>
-    <li>Apa hal baru yang saya pelajari tentang UUD 1945 dan tata urutan hukum?</li>
-    <li>Bagaimana nilai-nilai Pancasila tercermin dalam perilaku taat hukum?</li>
-    <li>Apa tantangan saya dalam memahami konsep hierarki hukum dan bagaimana saya mengatasinya?</li>
-  </ol>
+  <div class="section">
+    <h2>B. Petunjuk Pengerjaan</h2>
+    <ol>
+      <li>Bacalah materi "UUD NRI Tahun 1945" pada modul ajar dan repositori digital GitHub kelas.</li>
+      <li>Laksanakan kegiatan secara berkelompok (4–5 orang per kelompok).</li>
+      <li>Gunakan handphone atau laptop untuk membuat dan mengunggah hasil kerja ke GitHub Repo kelas sesuai instruksi guru.</li>
+      <li>Tulis hasil refleksi pribadi pada Google Form LKPD Digital yang disediakan guru.</li>
+      <li>Gunakan bahasa yang sopan, efektif, dan argumentatif dalam menjawab.</li>
+    </ol>
+  </div>
+
+  <div class="divider">________________________________________</div>
+
+  <div class="section">
+    <h2>C. Kegiatan Pembelajaran</h2>
+    
+    <h3>Langkah 1 — Memahami Konsep (Understanding)</h3>
+    <p><strong>📘 Tugas 1:</strong><br>
+    Bacalah Pembukaan UUD 1945 dan Pasal 1–3 UUD NRI Tahun 1945.<br>
+    Tuliskan hasil pemahaman Anda dalam tabel berikut:</p>
+    
+    <table id="tabel-pemahaman">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Pokok Pikiran / Pasal</th>
+          <th>Makna dalam Kehidupan Berbangsa</th>
+          <th>Contoh Penerapan di Sekolah</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><input type="text" placeholder="Contoh: Pembukaan Alinea IV"></td><td><textarea placeholder="Makna..."></textarea></td><td><textarea placeholder="Contoh..."></textarea></td></tr>
+        <tr><td>2</td><td><input type="text" placeholder="Contoh: Pasal 1 Ayat (2)"></td><td><textarea placeholder="Makna..."></textarea></td><td><textarea placeholder="Contoh..."></textarea></td></tr>
+        <tr><td>3</td><td><input type="text" placeholder="Pasal lainnya..."></td><td><textarea placeholder="Makna..."></textarea></td><td><textarea placeholder="Contoh..."></textarea></td></tr>
+      </tbody>
+    </table>
+    <p><em>💡 Petunjuk: Diskusikan bersama kelompok Anda dan bandingkan dengan nilai-nilai Pancasila yang relevan.</em></p>
+
+    <div class="divider">________________________________________</div>
+
+    <h3>Langkah 2 — Menganalisis Hierarki Hukum (Analyzing)</h3>
+    <p><strong>📗 Tugas 2:</strong><br>
+    Berdasarkan UU No. 12 Tahun 2011 jo. UU No. 13 Tahun 2022, susunlah bagan "Tata Urutan Peraturan Perundang-undangan di Indonesia."</p>
+    
+    <table id="tabel-hierarki">
+      <thead>
+        <tr>
+          <th>Jenjang</th>
+          <th>Jenis Peraturan</th>
+          <th>Contoh Nyata</th>
+          <th>Keterangan / Hubungan dengan UUD 1945</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Undang-Undang Dasar NRI 1945</td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+        <tr><td>2</td><td><input type="text" value="Ketetapan MPR"></td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+        <tr><td>3</td><td><input type="text" value="Undang-Undang / Perppu"></td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+        <tr><td>4</td><td><input type="text" value="Peraturan Pemerintah"></td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+        <tr><td>5</td><td><input type="text" value="Peraturan Presiden"></td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+        <tr><td>6</td><td><input type="text" value="Perda Provinsi"></td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+        <tr><td>7</td><td><input type="text" value="Perda Kabupaten/Kota"></td><td><input type="text" placeholder="Contoh..."></td><td><textarea placeholder="Keterangan..."></textarea></td></tr>
+      </tbody>
+    </table>
+    <p><em>💻 Gunakan Canva/Figma untuk membuat bagan digital dan unggah ke GitHub kelompok Anda.</em></p>
+
+    <div class="divider">________________________________________</div>
+
+    <h3>Langkah 4 — Refleksi Pribadi (Reflecting)</h3>
+    <p><strong>📒 Tugas 4 (Individu):</strong><br>
+    Isi refleksi pribadi melalui Google Form LKPD Digital dengan menjawab:</p>
+    <ol>
+      <li>Apa hal baru yang saya pelajari tentang UUD 1945 dan tata urutan hukum?</li>
+      <li>Bagaimana nilai-nilai Pancasila tercermin dalam perilaku taat hukum?</li>
+      <li>Apa tantangan saya dalam memahami konsep hierarki hukum dan bagaimana saya mengatasinya?</li>
+    </ol>
+  </div>
+
+  <div class="divider">________________________________________</div>
+
+  <div class="section">
+    <h2>D. Refleksi Kelompok</h2>
+    <label>🟩 Apa pelajaran utama yang diperoleh kelompok Anda?</label>
+    <textarea id="refleksi-kelompok-1" placeholder="Tuliskan jawaban kelompok..."></textarea>
+
+    <label>🟨 Bagaimana kerja sama tim terbentuk selama pengerjaan proyek digital?</label>
+    <textarea id="refleksi-kelompok-2" placeholder="Tuliskan jawaban kelompok..."></textarea>
+
+    <label>🟦 Apa manfaat penggunaan GitHub dan Google Form dalam pembelajaran ini?</label>
+    <textarea id="refleksi-kelompok-3" placeholder="Tuliskan jawaban kelompok..."></textarea>
+  </div>
+
+  <div class="instruction">
+    <strong>📄 Petunjuk Unduh PDF:</strong> Pilih orientasi yang sesuai dengan kebutuhan Anda. Orientasi landscape cocok untuk tabel yang lebar, sedangkan portrait untuk konten teks yang panjang.
+  </div>
+
+  <div class="btn-container">
+    <button class="btn btn-portrait" onclick="generatePDF('portrait')">📥 Unduh PDF (Portrait)</button>
+    <button class="btn btn-landscape" onclick="generatePDF('landscape')">📥 Unduh PDF (Landscape)</button>
+  </div>
+  <div id="error-message" class="error"></div>
 </div>
-
-<div class="divider">________________________________________</div>
-
-<div class="section">
-  <h2>D. Refleksi Kelompok</h2>
-  <label>🟩 Apa pelajaran utama yang diperoleh kelompok Anda?</label>
-  <textarea id="refleksi-kelompok-1" placeholder="Tuliskan jawaban kelompok..."></textarea>
-
-  <label>🟨 Bagaimana kerja sama tim terbentuk selama pengerjaan proyek digital?</label>
-  <textarea id="refleksi-kelompok-2" placeholder="Tuliskan jawaban kelompok..."></textarea>
-
-  <label>🟦 Apa manfaat penggunaan GitHub dan Google Form dalam pembelajaran ini?</label>
-  <textarea id="refleksi-kelompok-3" placeholder="Tuliskan jawaban kelompok..."></textarea>
-</div>
-
-<button class="btn" onclick="generatePDF()">📥 Unduh sebagai PDF</button>
-<div id="error-message" class="error"></div>
 
 <!-- Load jsPDF dan AutoTable dari CDN -->
-<script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-<script src="https://unpkg.com/jspdf-autotable@3.5.25/dist/jspdf.plugin.autotable.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 
 <script>
-  let jsPDF;
-  if (typeof window.jspdf === "object") {
-    jsPDF = window.jspdf.jsPDF;
-  } else {
-    jsPDF = window.jsPDF;
-  }
+  // Inisialisasi jsPDF
+  const { jsPDF } = window.jspdf;
 
-  function generatePDF() {
+  function generatePDF(orientation) {
     const errorMessage = document.getElementById("error-message");
     errorMessage.textContent = "";
 
     try {
-      const doc = new jsPDF();
+      // Buat dokumen dengan orientasi yang dipilih
+      const doc = new jsPDF({
+        orientation: orientation,
+        unit: 'mm',
+        format: 'a4'
+      });
+      
       const pageWidth = doc.internal.pageSize.width;
+      const margin = 15;
+      let y = 20;
 
       // Header
       doc.setFontSize(16);
       doc.setTextColor(201, 26, 60);
-      doc.text("LEMBAR KERJA PESERTA DIDIK (LKPD)", pageWidth / 2, 20, null, null, "center");
+      doc.text("LEMBAR KERJA PESERTA DIDIK (LKPD)", pageWidth / 2, y, { align: "center" });
       doc.setFontSize(12);
       doc.setTextColor(0);
-      doc.text("Pendidikan Pancasila – Kelas X – Pertemuan ke-9", pageWidth / 2, 27, null, null, "center");
-
-      let y = 35;
+      doc.text("Pendidikan Pancasila – Kelas X – Pertemuan ke-9", pageWidth / 2, y + 7, { align: "center" });
+      y += 20;
 
       // Identitas
       const nama = document.getElementById("nama").value || "[Nama belum diisi]";
@@ -289,16 +349,16 @@
       const tanggal = document.getElementById("tanggal").value || "[Tanggal belum diisi]";
 
       doc.setFont("helvetica", "bold");
-      doc.text("Data Diri Peserta Didik", 14, y);
+      doc.text("Data Diri Peserta Didik", margin, y);
       doc.setFont("helvetica", "normal");
-      y += 6;
-      doc.text(`Nama: ${nama}`, 14, y); y += 6;
-      doc.text(`Kelas: ${kelas}`, 14, y); y += 6;
-      doc.text(`Tanggal: ${tanggal}`, 14, y); y += 12;
+      y += 8;
+      doc.text(`Nama: ${nama}`, margin, y); y += 6;
+      doc.text(`Kelas: ${kelas}`, margin, y); y += 6;
+      doc.text(`Tanggal: ${tanggal}`, margin, y); y += 12;
 
       // Bagian LKPD BAB
       doc.setFont("helvetica", "bold");
-      doc.text("📄 LKPD BAB: UUD NRI TAHUN 1945", 14, y);
+      doc.text("📄 LKPD BAB: UUD NRI TAHUN 1945", margin, y);
       y += 8;
       doc.setFont("helvetica", "normal");
       const infoText = `Mata Pelajaran: Pendidikan Pancasila
@@ -308,59 +368,159 @@ Pertemuan Ke: 9
 Alokasi Waktu: 2 JP (1 pertemuan @ 90 menit)
 Tahun Pelajaran: 2025 / 2026
 Media Pendukung: Handphone / Laptop, GitHub Repo Kelas, Google Form LKPD`;
-      const infoLines = doc.splitTextToSize(infoText, 180);
-      doc.text(infoLines, 14, y);
+      const infoLines = doc.splitTextToSize(infoText, pageWidth - 2 * margin);
+      doc.text(infoLines, margin, y);
       y += infoLines.length * 6 + 12;
 
       // Kompetensi
       doc.setFont("helvetica", "bold");
-      doc.text("A. Kompetensi & Tujuan Pembelajaran", 14, y);
+      doc.text("A. Kompetensi & Tujuan Pembelajaran", margin, y);
       y += 8;
       doc.setFont("helvetica", "normal");
       const cp = "Capaian Pembelajaran (CP):\nPeserta didik mampu menerapkan perilaku taat hukum berdasarkan peraturan yang berlaku di masyarakat, serta menganalisis tata urutan peraturan perundang-undangan di Indonesia.";
       const tujuan = "Tujuan LKPD:\nMelalui kegiatan eksploratif, kolaboratif, dan digital interaktif, peserta didik diharapkan dapat:\n1. Menjelaskan pengertian dan kedudukan UUD NRI Tahun 1945 sebagai hukum dasar tertulis.\n2. Mengidentifikasi tata urutan peraturan perundang-undangan di Indonesia berdasarkan UU No. 12 Tahun 2011 jo. UU No. 13 Tahun 2022.\n3. Menyajikan hasil analisis tata urutan peraturan dalam bentuk infografis digital kolaboratif.\n4. Menunjukkan sikap taat aturan dan gotong royong dalam diskusi kelompok.";
-      const cpLines = doc.splitTextToSize(cp, 180);
-      doc.text(cpLines, 14, y);
+      const cpLines = doc.splitTextToSize(cp, pageWidth - 2 * margin);
+      doc.text(cpLines, margin, y);
       y += cpLines.length * 6 + 6;
-      const tujuanLines = doc.splitTextToSize(tujuan, 180);
-      doc.text(tujuanLines, 14, y);
+      const tujuanLines = doc.splitTextToSize(tujuan, pageWidth - 2 * margin);
+      doc.text(tujuanLines, margin, y);
       y += tujuanLines.length * 6 + 12;
 
       // Petunjuk Pengerjaan
       doc.setFont("helvetica", "bold");
-      doc.text("B. Petunjuk Pengerjaan", 14, y);
+      doc.text("B. Petunjuk Pengerjaan", margin, y);
       y += 8;
       doc.setFont("helvetica", "normal");
-      const petunjuk = "1. Bacalah materi “UUD NRI Tahun 1945” pada modul ajar dan repositori digital GitHub kelas.\n2. Laksanakan kegiatan secara berkelompok (4–5 orang per kelompok).\n3. Gunakan handphone atau laptop untuk membuat dan mengunggah hasil kerja ke GitHub Repo kelas sesuai instruksi guru.\n4. Tulis hasil refleksi pribadi pada Google Form LKPD Digital yang disediakan guru.\n5. Gunakan bahasa yang sopan, efektif, dan argumentatif dalam menjawab.";
-      const petunjukLines = doc.splitTextToSize(petunjuk, 180);
-      doc.text(petunjukLines, 14, y);
+      const petunjuk = "1. Bacalah materi \"UUD NRI Tahun 1945\" pada modul ajar dan repositori digital GitHub kelas.\n2. Laksanakan kegiatan secara berkelompok (4–5 orang per kelompok).\n3. Gunakan handphone atau laptop untuk membuat dan mengunggah hasil kerja ke GitHub Repo kelas sesuai instruksi guru.\n4. Tulis hasil refleksi pribadi pada Google Form LKPD Digital yang disediakan guru.\n5. Gunakan bahasa yang sopan, efektif, dan argumentatif dalam menjawab.";
+      const petunjukLines = doc.splitTextToSize(petunjuk, pageWidth - 2 * margin);
+      doc.text(petunjukLines, margin, y);
       y += petunjukLines.length * 6 + 12;
+
+      // Tabel Pemahaman
+      doc.setFont("helvetica", "bold");
+      doc.text("Langkah 1 — Memahami Konsep (Understanding)", margin, y);
+      y += 8;
+      
+      // Mengambil data dari tabel pemahaman
+      const tabelPemahaman = document.getElementById('tabel-pemahaman');
+      const rowsPemahaman = tabelPemahaman.querySelectorAll('tbody tr');
+      const dataPemahaman = [];
+      
+      rowsPemahaman.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const rowData = [];
+        
+        // Kolom No
+        rowData.push(cells[0].textContent);
+        
+        // Kolom Pokok Pikiran / Pasal
+        const inputPikiran = cells[1].querySelector('input');
+        rowData.push(inputPikiran ? inputPikiran.value : '');
+        
+        // Kolom Makna
+        const textareaMakna = cells[2].querySelector('textarea');
+        rowData.push(textareaMakna ? textareaMakna.value : '');
+        
+        // Kolom Contoh
+        const textareaContoh = cells[3].querySelector('textarea');
+        rowData.push(textareaContoh ? textareaContoh.value : '');
+        
+        dataPemahaman.push(rowData);
+      });
+      
+      // Membuat tabel dengan AutoTable
+      doc.autoTable({
+        startY: y,
+        head: [['No', 'Pokok Pikiran / Pasal', 'Makna dalam Kehidupan Berbangsa', 'Contoh Penerapan di Sekolah']],
+        body: dataPemahaman,
+        margin: { left: margin, right: margin },
+        styles: { fontSize: 8, cellPadding: 2 },
+        headStyles: { fillColor: [13, 110, 253] },
+        columnStyles: {
+          0: { cellWidth: 10 },
+          1: { cellWidth: 30 },
+          2: { cellWidth: orientation === 'landscape' ? 50 : 40 },
+          3: { cellWidth: orientation === 'landscape' ? 50 : 40 }
+        }
+      });
+      
+      y = doc.lastAutoTable.finalY + 10;
+
+      // Tabel Hierarki
+      doc.setFont("helvetica", "bold");
+      doc.text("Langkah 2 — Menganalisis Hierarki Hukum (Analyzing)", margin, y);
+      y += 8;
+      
+      // Mengambil data dari tabel hierarki
+      const tabelHierarki = document.getElementById('tabel-hierarki');
+      const rowsHierarki = tabelHierarki.querySelectorAll('tbody tr');
+      const dataHierarki = [];
+      
+      rowsHierarki.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const rowData = [];
+        
+        // Kolom Jenjang
+        rowData.push(cells[0].textContent);
+        
+        // Kolom Jenis Peraturan
+        const inputJenis = cells[1].querySelector('input');
+        rowData.push(inputJenis ? inputJenis.value : '');
+        
+        // Kolom Contoh Nyata
+        const inputContoh = cells[2].querySelector('input');
+        rowData.push(inputContoh ? inputContoh.value : '');
+        
+        // Kolom Keterangan
+        const textareaKeterangan = cells[3].querySelector('textarea');
+        rowData.push(textareaKeterangan ? textareaKeterangan.value : '');
+        
+        dataHierarki.push(rowData);
+      });
+      
+      // Membuat tabel dengan AutoTable
+      doc.autoTable({
+        startY: y,
+        head: [['Jenjang', 'Jenis Peraturan', 'Contoh Nyata', 'Keterangan / Hubungan dengan UUD 1945']],
+        body: dataHierarki,
+        margin: { left: margin, right: margin },
+        styles: { fontSize: 8, cellPadding: 2 },
+        headStyles: { fillColor: [13, 110, 253] },
+        columnStyles: {
+          0: { cellWidth: 12 },
+          1: { cellWidth: 35 },
+          2: { cellWidth: orientation === 'landscape' ? 40 : 30 },
+          3: { cellWidth: orientation === 'landscape' ? 60 : 40 }
+        }
+      });
+      
+      y = doc.lastAutoTable.finalY + 10;
 
       // Refleksi Kelompok
       doc.setFont("helvetica", "bold");
-      doc.text("D. Refleksi Kelompok", 14, y);
+      doc.text("D. Refleksi Kelompok", margin, y);
       y += 8;
       doc.setFont("helvetica", "normal");
 
       const r1 = document.getElementById("refleksi-kelompok-1").value || "[Belum diisi]";
-      doc.text("🟩 Apa pelajaran utama yang diperoleh kelompok Anda?", 14, y); y += 6;
-      const lines1 = doc.splitTextToSize(r1, 180);
-      doc.text(lines1, 14, y);
+      doc.text("🟩 Apa pelajaran utama yang diperoleh kelompok Anda?", margin, y); y += 6;
+      const lines1 = doc.splitTextToSize(r1, pageWidth - 2 * margin);
+      doc.text(lines1, margin, y);
       y += lines1.length * 6 + 8;
 
       const r2 = document.getElementById("refleksi-kelompok-2").value || "[Belum diisi]";
-      doc.text("🟨 Bagaimana kerja sama tim terbentuk selama pengerjaan proyek digital?", 14, y); y += 6;
-      const lines2 = doc.splitTextToSize(r2, 180);
-      doc.text(lines2, 14, y);
+      doc.text("🟨 Bagaimana kerja sama tim terbentuk selama pengerjaan proyek digital?", margin, y); y += 6;
+      const lines2 = doc.splitTextToSize(r2, pageWidth - 2 * margin);
+      doc.text(lines2, margin, y);
       y += lines2.length * 6 + 8;
 
       const r3 = document.getElementById("refleksi-kelompok-3").value || "[Belum diisi]";
-      doc.text("🟦 Apa manfaat penggunaan GitHub dan Google Form dalam pembelajaran ini?", 14, y); y += 6;
-      const lines3 = doc.splitTextToSize(r3, 180);
-      doc.text(lines3, 14, y);
+      doc.text("🟦 Apa manfaat penggunaan GitHub dan Google Form dalam pembelajaran ini?", margin, y); y += 6;
+      const lines3 = doc.splitTextToSize(r3, pageWidth - 2 * margin);
+      doc.text(lines3, margin, y);
 
       // Generate PDF
-      const fileName = `LKPD_UUD1945_${nama.replace(/\s+/g, '_') || 'Siswa'}.pdf`;
+      const fileName = `LKPD_UUD1945_${nama.replace(/\s+/g, '_') || 'Siswa'}_${orientation}.pdf`;
       doc.save(fileName);
 
     } catch (err) {
