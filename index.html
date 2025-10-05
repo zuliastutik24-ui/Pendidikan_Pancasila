@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --primary: #c91a3c;
+      --primary: #c91a3c; /* Merah */
       --primary-dark: #a01530;
       --secondary: #0d6efd;
       --accent: #ffd700;
@@ -46,6 +46,22 @@
       line-height: 1.6;
       transition: var(--transition);
       overflow-x: hidden;
+      background-image:
+        linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--primary) 49px, var(--primary) 50px),
+        repeating-linear-gradient(0deg, transparent, transparent 49px, var(--white) 49px, var(--white) 50px),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 Q40,5 60,20 T100,20 M20,50 Q40,35 60,50 T100,50 M20,80 Q40,65 60,80 T100,80' stroke='%23c91a3c' stroke-width='0.5' fill='none' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 100% 5px, 100% 5px, auto;
+      background-position: top, bottom, center;
+      background-repeat: repeat-x, repeat-x, repeat;
+    }
+
+    .dark-mode body {
+      background-image:
+        linear-gradient(to bottom, rgba(42,42,42,0.95), rgba(42,42,42,0.95)),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--primary) 49px, var(--primary) 50px),
+        repeating-linear-gradient(0deg, transparent, transparent 49px, #1e1e1e 49px, #1e1e1e 50px),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 Q40,5 60,20 T100,20 M20,50 Q40,35 60,50 T100,50 M20,80 Q40,65 60,80 T100,80' stroke='%23e63946' stroke-width='0.5' fill='none' opacity='0.04'/%3E%3C/svg%3E");
     }
 
     /* Header & Navigation */
@@ -224,7 +240,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-bottom: 3rem;
     }
@@ -235,22 +251,22 @@
       padding: 2rem;
       box-shadow: var(--shadow);
       transition: var(--transition);
-      border-top: 5px solid var(--secondary);
+      border-top: 5px solid var(--primary);
       display: flex;
       flex-direction: column;
       height: 100%;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
     }
 
     .card-icon {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--secondary), #4cc9f0);
+      background: linear-gradient(135deg, var(--primary), #e63946);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -260,7 +276,7 @@
     }
 
     .card h3 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 1rem;
       color: var(--primary);
     }
@@ -268,6 +284,7 @@
     .card p {
       margin-bottom: 1.5rem;
       flex-grow: 1;
+      font-size: 0.95rem;
     }
 
     .btn {
@@ -331,12 +348,15 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      min-height: 400px;
     }
 
     iframe {
       width: 100%;
-      min-height: 400px;
+      height: 100%;
       border: none;
+      min-height: 400px;
     }
 
     /* Footer */
@@ -422,12 +442,6 @@
     }
 
     /* Responsive Design */
-    @media (max-width: 1024px) {
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
@@ -443,13 +457,9 @@
         font-size: 1rem;
       }
       
-      .cards {
-        grid-template-columns: 1fr;
-      }
-      
       .tugas-header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
       
       .footer-content {
@@ -478,6 +488,10 @@
       .tugas-section {
         padding: 1.5rem;
       }
+      
+      .iframe-container {
+        min-height: 300px;
+      }
     }
 
     /* Animations */
@@ -488,19 +502,6 @@
 
     .card, .tugas-section, .hero {
       animation: fadeIn 0.6s ease-out;
-    }
-
-    /* Utility Classes */
-    .text-center {
-      text-align: center;
-    }
-    
-    .mb-2 {
-      margin-bottom: 2rem;
-    }
-    
-    .mt-2 {
-      margin-top: 2rem;
     }
   </style>
 </head>
@@ -518,11 +519,7 @@
           <p>Kelas X - SMAN 1 Bangorejo</p>
         </div>
       </div>
-      <div class="header-actions">
-        <button class="btn btn-secondary">
-          <i class="fas fa-user-graduate"></i> Login Siswa
-        </button>
-      </div>
+      <!-- Tombol Login Siswa DIHAPUS sesuai permintaan -->
     </div>
   </header>
 
@@ -579,7 +576,7 @@
             <i class="fas fa-file-pdf"></i>
           </div>
           <h3>Lembar Kerja (LKPD)</h3>
-          <p>Download lembar kerja peserta didik untuk melatih pemahaman tentang materi yang telah dipelajari.</p>
+          <p>Download lembar kerja peserta didik setelah mengerjakan tugas untuk mengukur pemahamanmu.</p>
           <a href="lkpd_pancasila.pdf" class="btn btn-full" target="_blank">
             Download <i class="fas fa-download"></i>
           </a>
@@ -596,7 +593,6 @@
           </a>
         </div>
         
-        <!-- Kartu Baru 1: Bhinneka Tunggal Ika -->
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-handshake"></i>
@@ -608,7 +604,6 @@
           </a>
         </div>
         
-        <!-- Kartu Baru 2: Negara Kesatuan Republik Indonesia -->
         <div class="card">
           <div class="card-icon">
             <i class="fas fa-flag"></i>
@@ -687,7 +682,6 @@
       toggleButton.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
 
-    // Search Function
     function searchInModule() {
       const query = document.getElementById('searchInput').value.trim();
       if (!query) {
@@ -698,10 +692,8 @@
       window.open('modul-pancasila.html', '_blank');
     }
 
-    // Add subtle animation to cards on scroll
     document.addEventListener('DOMContentLoaded', function() {
       const cards = document.querySelectorAll('.card');
-      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -710,9 +702,7 @@
         });
       }, { threshold: 0.1 });
       
-      cards.forEach(card => {
-        observer.observe(card);
-      });
+      cards.forEach(card => observer.observe(card));
     });
   </script>
 
