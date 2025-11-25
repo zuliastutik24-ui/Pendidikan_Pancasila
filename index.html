@@ -176,8 +176,12 @@
     .content{
       max-width:1200px;margin:2.2rem auto;padding:0 1.5rem;z-index:5;position:relative;
     }
+    
+    /* Grid untuk kartu materi - 3 kolom */
     .grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:1.2rem;
     }
 
     .card-lg{
@@ -186,6 +190,14 @@
       backdrop-filter: blur(6px);
       box-shadow:var(--shadow-1);
       transition:var(--transition);
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-lg:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(201,26,60,0.15);
     }
     .card-lg h3{margin:0 0 0.6rem 0}
     .card-lg p{margin:0;color:var(--muted);font-size:0.96rem}
@@ -223,10 +235,33 @@
     .qr{width:180px;height:180px;border-radius:12px;background:white;padding:8px;display:flex;align-items:center;justify-content:center}
     .modal-close{position:absolute;right:2rem;top:1.6rem;color:rgba(255,255,255,0.8);background:transparent;border:0;font-size:1.2rem}
 
+    /* File upload area */
+    .file-upload-area {
+      border: 2px dashed rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .file-upload-area:hover {
+      border-color: var(--primary);
+      background: rgba(201,26,60,0.05);
+    }
+    .file-upload-area i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
     /* responsive */
     @media (max-width:980px){
       header.hero-section{grid-template-columns:1fr;gap:1rem;padding:2rem 1rem}
       .floating-logo{width:90px;height:90px}
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     @media (max-width:640px){
       .brand img{width:52px;height:52px}
@@ -234,10 +269,27 @@
       nav{padding:0.6rem 0.8rem}
       .modal-grid{grid-template-columns:1fr}
       .qr{width:140px;height:140px;margin:auto}
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* accessibility focus */
     a:focus, button:focus, input:focus{outline: 3px solid rgba(255,210,40,0.14);outline-offset:2px}
+
+    /* Loading state */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 
@@ -288,8 +340,8 @@
       </div>
 
       <div class="teacher-photo" aria-hidden="false">
-        <!-- Jika punya foto guru, ganti src di bawah -->
-        <img src="https://i.ibb.co/yVqJZ1P/placeholder-teacher.png" alt="Foto Guru Zuli Astutik" onerror="this.src='https://i.ibb.co/yVqJZ1P/placeholder-teacher.png'">
+        <!-- Foto Zuli Astutik, S.Pd. -->
+        <img src="https://i.ibb.co.com/wrsjpsyN/zuli-astutik.jpg" alt="Foto Guru Zuli Astutik" onerror="this.src='https://i.ibb.co/yVqJZ1P/placeholder-teacher.png'">
       </div>
 
       <div class="teacher-meta">
@@ -313,8 +365,10 @@
 
         <!-- Card 1: LKPD -->
         <article class="card-lg" role="listitem" aria-labelledby="lkpd-title">
-          <h3 id="lkpd-title"><i class="fas fa-file-pdf"></i> Lembar Kerja (LKPD)</h3>
-          <p>Kerjakan LKPD di rumah atau di kelas, lalu unggah hasilnya melalui Google Form yang tersedia.</p>
+          <div>
+            <h3 id="lkpd-title"><i class="fas fa-file-pdf"></i> Lembar Kerja (LKPD)</h3>
+            <p>Kerjakan LKPD di rumah atau di kelas, lalu unggah hasilnya melalui Google Form yang tersedia.</p>
+          </div>
           <div class="card-actions">
             <a class="btn btn-primary btn-sm" href="lkpd_pancasila.pdf" target="_blank" rel="noopener" aria-label="Unduh LKPD">Unduh PDF</a>
             <a class="btn btn-ghost btn-sm" href="https://forms.gle/UpZXSCgKnxPbpvph9" target="_blank" rel="noopener">Unggah Hasil</a>
@@ -323,8 +377,10 @@
 
         <!-- Card 2: Modul -->
         <article class="card-lg" role="listitem" aria-labelledby="modul-title">
-          <h3 id="modul-title"><i class="fas fa-book-open"></i> Modul Ajar</h3>
-          <p>Modul lengkap untuk pembelajaran Pancasila dan UUD 1945, direkomendasikan untuk persiapan refleksi dan penilaian.</p>
+          <div>
+            <h3 id="modul-title"><i class="fas fa-book-open"></i> Modul Ajar</h3>
+            <p>Modul lengkap untuk pembelajaran Pancasila dan UUD 1945, direkomendasikan untuk persiapan refleksi dan penilaian.</p>
+          </div>
           <div class="card-actions">
             <a class="btn btn-primary btn-sm" href="modul-pancasila.html" target="_blank" rel="noopener">Buka Modul</a>
           </div>
@@ -332,8 +388,10 @@
 
         <!-- Card 3: UUD 1945 -->
         <article class="card-lg" role="listitem" aria-labelledby="uud-title">
-          <h3 id="uud-title"><i class="fas fa-landmark"></i> Materi UUD 1945</h3>
-          <p>Pendalaman pasal-pasal penting, makna amandemen, dan hubungan konstitusi dengan nilai Pancasila.</p>
+          <div>
+            <h3 id="uud-title"><i class="fas fa-landmark"></i> Materi UUD 1945</h3>
+            <p>Pendalaman pasal-pasal penting, makna amandemen, dan hubungan konstitusi dengan nilai Pancasila.</p>
+          </div>
           <div class="card-actions">
             <a class="btn btn-ghost btn-sm" href="materi-uud-pancasila.html" target="_blank" rel="noopener">Pelajari</a>
           </div>
@@ -341,8 +399,10 @@
 
         <!-- Card 4: Sejarah Konstitusi -->
         <article class="card-lg" role="listitem" aria-labelledby="sejarah-title">
-          <h3 id="sejarah-title"><i class="fas fa-history"></i> Sejarah Konstitusi</h3>
-          <p>Perjalanan konstitusi Indonesia dari masa penjajahan hingga amandemen UUD 1945.</p>
+          <div>
+            <h3 id="sejarah-title"><i class="fas fa-history"></i> Sejarah Konstitusi</h3>
+            <p>Perjalanan konstitusi Indonesia dari masa penjajahan hingga amandemen UUD 1945.</p>
+          </div>
           <div class="card-actions">
             <a class="btn btn-ghost btn-sm" href="sejarah-konstitusi.pdf" target="_blank" rel="noopener">Baca</a>
           </div>
@@ -350,8 +410,10 @@
 
         <!-- Card 5: Bhinneka -->
         <article class="card-lg" role="listitem" aria-labelledby="bhinneka-title">
-          <h3 id="bhinneka-title"><i class="fas fa-handshake"></i> Bhinneka Tunggal Ika</h3>
-          <p>Memahami keragaman sebagai kekuatan; aktivitas kelompok & studi kasus tersedia di modul.</p>
+          <div>
+            <h3 id="bhinneka-title"><i class="fas fa-handshake"></i> Bhinneka Tunggal Ika</h3>
+            <p>Memahami keragaman sebagai kekuatan; aktivitas kelompok & studi kasus tersedia di modul.</p>
+          </div>
           <div class="card-actions">
             <a class="btn btn-ghost btn-sm" href="bhinneka-tunggal-ika.html" target="_blank" rel="noopener">Pelajari</a>
           </div>
@@ -359,8 +421,10 @@
 
         <!-- Card 6: NKRI -->
         <article class="card-lg" role="listitem" aria-labelledby="nkri-title">
-          <h3 id="nkri-title"><i class="fas fa-flag"></i> Negara Kesatuan Republik Indonesia</h3>
-          <p>Peran warga negara, hak & kewajiban, dan nilai Pancasila dalam pembangunan nasional.</p>
+          <div>
+            <h3 id="nkri-title"><i class="fas fa-flag"></i> Negara Kesatuan Republik Indonesia</h3>
+            <p>Peran warga negara, hak & kewajiban, dan nilai Pancasila dalam pembangunan nasional.</p>
+          </div>
           <div class="card-actions">
             <a class="btn btn-ghost btn-sm" href="nkri.html" target="_blank" rel="noopener">Pelajari</a>
           </div>
@@ -383,6 +447,12 @@
         <div class="iframe-wrap">
           <iframe src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://forms.gle/UpZXSCgKnxPbpvph9" title="QR Form" style="width:100%;height:260px;border:0;background:#fff"></iframe>
         </div>
+      </div>
+
+      <div class="file-upload-area" onclick="window.open('https://forms.gle/UpZXSCgKnxPbpvph9', '_blank')">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h4>Klik untuk Mengunggah Tugas</h4>
+        <p>Drag & drop file atau klik untuk membuka Google Form</p>
       </div>
 
       <div class="iframe-wrap" style="margin-top:1rem;">
@@ -568,6 +638,26 @@
       // keyboard: ESC closes modal
       document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape') closeProfile();
+      });
+
+      // File upload area interaction
+      const fileUploadArea = document.querySelector('.file-upload-area');
+      fileUploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileUploadArea.style.borderColor = 'var(--primary)';
+        fileUploadArea.style.background = 'rgba(201,26,60,0.1)';
+      });
+      
+      fileUploadArea.addEventListener('dragleave', () => {
+        fileUploadArea.style.borderColor = 'rgba(255,255,255,0.1)';
+        fileUploadArea.style.background = '';
+      });
+      
+      fileUploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileUploadArea.style.borderColor = 'rgba(255,255,255,0.1)';
+        fileUploadArea.style.background = '';
+        alert('Untuk mengunggah file, silakan buka Google Form melalui tombol di atas.');
       });
 
     })();
