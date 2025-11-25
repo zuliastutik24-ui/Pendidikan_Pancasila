@@ -1,391 +1,577 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id" id="html-root">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📘 Pendidikan Pancasila X | SMAN 1 Bangorejo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>📘 Pendidikan Pancasila X • SMAN 1 Bangorejo — ULTRA PREMIUM</title>
+  <meta name="description" content="Pembelajaran Pendidikan Pancasila Kelas X — SMAN 1 Bangorejo. Modul, LKPD, tugas, dan profil guru.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+  <meta name="theme-color" content="#c91a3c">
+
+  <!-- ======================
+       ULTRA PREMIUM STYLES
+       ====================== -->
   <style>
-    :root {
-      --primary: #c91a3c;
-      --primary-dark: #a01530;
-      --secondary: #0d6efd;
-      --accent: #ffd700;
-      --light: #f8f9fa;
-      --dark: #333;
-      --white: #ffffff;
-      --gray: #6c757d;
-      --success: #28a745;
-      --shadow: 0 5px 15px rgba(0,0,0,0.08);
-      --transition: all 0.3s ease;
+    :root{
+      --primary:#c91a3c;
+      --primary-2:#e63946;
+      --primary-dark:#8f1029;
+      --accent:#ffd700;
+      --muted:#6c757d;
+      --bg:#0f1724; /* dark base for rich gradients */
+      --surface:rgba(255,255,255,0.06);
+      --glass:rgba(255,255,255,0.06);
+      --glass-2:rgba(255,255,255,0.04);
+      --text:#eef2f7;
+      --card-radius:16px;
+      --shadow-1: 0 6px 30px rgba(14,21,47,0.6);
+      --transition: all .35s cubic-bezier(.2,.9,.3,1);
+      font-synthesis: none;
     }
 
-    .dark-mode {
-      --primary: #e63946;
-      --primary-dark: #c1121f;
-      --secondary: #4cc9f0;
-      --accent: #ffd166;
-      --light: #2a2a2a;
-      --dark: #f8f9fa;
-      --white: #1e1e1e;
-      --gray: #adb5bd;
-      --success: #4ad66d;
-      --shadow: 0 5px 15px rgba(0,0,0,0.2);
+    /* Light mode vars (overridden via class) */
+    :root.light{
+      --bg:#f6f7fb;
+      --surface:rgba(0,0,0,0.03);
+      --glass:rgba(255,255,255,0.8);
+      --glass-2:rgba(0,0,0,0.03);
+      --text:#0b1220;
+      --shadow-1: 0 8px 30px rgba(10,10,10,0.08);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 400px at 10% 10%, rgba(201,26,60,0.12), transparent 10%),
+        radial-gradient(900px 300px at 95% 90%, rgba(13,110,253,0.06), transparent 10%),
+        linear-gradient(180deg, var(--bg) 0%, #071025 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      transition:var(--transition);
+      overflow-x:hidden;
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-      transition: var(--transition);
-      overflow-x: hidden;
-      background-image:
-        linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--primary) 49px, var(--primary) 50px),
-        repeating-linear-gradient(0deg, transparent, transparent 49px, var(--white) 49px, var(--white) 50px),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 Q40,5 60,20 T100,20 M20,50 Q40,35 60,50 T100,50 M20,80 Q40,65 60,80 T100,80' stroke='%23c91a3c' stroke-width='0.5' fill='none' opacity='0.03'/%3E%3C/svg%3E");
-      background-size: 100% 5px, 100% 5px, auto;
-      background-position: top, bottom, center;
-      background-repeat: repeat-x, repeat-x, repeat;
+    /* Decorative animated gradient overlay */
+    .animated-gradient{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      background: conic-gradient(from 120deg at 50% 50%, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      mix-blend-mode:overlay;
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate{to{transform:rotate(360deg)}}
+
+    /* NAVBAR */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:0.8rem 1.5rem;
+      backdrop-filter: blur(8px) saturate(120%);
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .nav-left{display:flex;align-items:center;gap:0.9rem}
+    .brand{
+      display:flex;
+      gap:0.8rem;
+      align-items:center;
+    }
+    .brand img{
+      width:64px;height:64px;border-radius:14px;object-fit:cover;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.45), 0 0 0 4px rgba(201,26,60,0.06) inset;
+      transform:translateZ(0);
+    }
+    .brand h1{
+      font-size:1.05rem;margin:0;letter-spacing:0.2px;font-weight:800;
+    }
+    .brand p{margin:0;font-size:0.82rem;opacity:0.85}
+
+    .nav-actions{display:flex;gap:0.6rem;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.55rem 0.9rem;border-radius:999px;border:0;cursor:pointer;font-weight:700}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06)}
+    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-2));color:white;box-shadow:0 8px 30px rgba(201,26,60,0.18)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(201,26,60,0.28)}
+
+    /* Floating logo animation */
+    .floating-logo{
+      width:120px;height:120px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      box-shadow: 0 18px 60px rgba(0,0,0,0.5), 0 4px 18px rgba(201,26,60,0.12) inset;
+      border:1px solid rgba(255,255,255,0.04);
+      transform:translateY(-6px);
+      transition:transform .6s cubic-bezier(.2,.9,.3,1);
+      will-change:transform;
+    }
+    .floating-logo img{width:86%;height:86%;object-fit:contain;border-radius:12px;}
+
+    /* HERO ULTRA */
+    header.hero-section{
+      padding:3.2rem 1.5rem;
+      display:grid;
+      grid-template-columns: 1fr 400px;
+      gap:2rem;
+      align-items:center;
+      position:relative;
+      z-index:10;
+    }
+    .hero-left{
+      max-width:900px;
+      padding:1rem 0;
+    }
+    .hero-left h2{
+      font-size:2.6rem;margin:0 0 0.6rem 0;line-height:1.02;
+      letter-spacing:-0.6px;
+      text-shadow: 0 6px 30px rgba(0,0,0,0.5);
+    }
+    .hero-left p{margin:0 0 1rem 0;font-size:1.05rem;opacity:0.95}
+
+    .search-gradient{
+      display:flex;gap:0.5rem;align-items:center;padding:0.6rem;border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      width:100%;max-width:640px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.28);
+    }
+    .search-gradient input{
+      background:transparent;border:0;outline:0;color:var(--text);font-size:1rem;padding:.5rem;
+      width:100%;
+    }
+    .search-gradient button{background:transparent;border:0;color:var(--text);font-size:1.05rem;padding:0.45rem}
+
+    /* HERO RIGHT - profile card */
+    .hero-right{
+      display:flex;flex-direction:column;align-items:center;gap:1rem;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;padding:1.1rem;border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter:blur(8px);
+    }
+    .teacher-photo{
+      width:110px;height:110px;border-radius:14px; overflow:hidden;
+      border:2px solid rgba(255,255,255,0.06); box-shadow:0 14px 40px rgba(0,0,0,0.5);
+      background:linear-gradient(135deg,#fff0,#fff0);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .teacher-photo img{width:100%;height:100%;object-fit:cover}
+
+    .teacher-meta{ text-align:center }
+    .teacher-meta h4{margin:0;font-size:1.05rem}
+    .teacher-meta p{margin:6px 0 0 0;opacity:0.9;font-size:0.95rem}
+    .contact-row{display:flex;gap:0.6rem;align-items:center;margin-top:8px}
+
+    /* CONTENT GRID - cards */
+    .content{
+      max-width:1200px;margin:2.2rem auto;padding:0 1.5rem;z-index:5;position:relative;
+    }
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;
     }
 
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      padding: 0.5rem 2rem;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    .card-lg{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--card-radius);padding:1.6rem;border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      box-shadow:var(--shadow-1);
+      transition:var(--transition);
+    }
+    .card-lg h3{margin:0 0 0.6rem 0}
+    .card-lg p{margin:0;color:var(--muted);font-size:0.96rem}
+
+    .card-actions{display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap}
+    .btn-sm{padding:.5rem .8rem;border-radius:999px;font-weight:700;border:0}
+
+    /* Tugas section */
+    .tugas{
+      margin-top:1.6rem;padding:1.2rem;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
     }
 
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .iframe-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);margin-top:1rem}
+
+    /* Footer */
+    footer{
+      margin-top:3.5rem;padding:2rem 1.5rem;background:linear-gradient(180deg,var(--primary-dark),#02060a);
+      color:var(--text);position:relative;z-index:5;
+    }
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;align-items:start}
+    .footer-card{padding:1rem;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.04)}
+    .footer-card h4{margin:0 0 .6rem 0}
+    .footer-credits{opacity:0.9;margin-top:1rem;text-align:center}
+
+    /* Modal Profile */
+    .modal{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:200;
+      background:linear-gradient(180deg, rgba(2,6,23,0.65), rgba(2,6,23,0.75));
+      padding:2rem;opacity:0;pointer-events:none;transform:scale(.98);transition:var(--transition);
+    }
+    .modal.open{opacity:1;pointer-events:auto;transform:scale(1)}
+    .modal-card{width:100%;max-width:900px;border-radius:12px;padding:1.4rem;background:linear-gradient(180deg,#061221, #071228);border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 80px rgba(0,0,0,0.6)}
+    .modal-grid{display:grid;grid-template-columns:220px 1fr;gap:1rem;align-items:start}
+    .qr{width:180px;height:180px;border-radius:12px;background:white;padding:8px;display:flex;align-items:center;justify-content:center}
+    .modal-close{position:absolute;right:2rem;top:1.6rem;color:rgba(255,255,255,0.8);background:transparent;border:0;font-size:1.2rem}
+
+    /* responsive */
+    @media (max-width:980px){
+      header.hero-section{grid-template-columns:1fr;gap:1rem;padding:2rem 1rem}
+      .floating-logo{width:90px;height:90px}
+    }
+    @media (max-width:640px){
+      .brand img{width:52px;height:52px}
+      .hero-left h2{font-size:1.6rem}
+      nav{padding:0.6rem 0.8rem}
+      .modal-grid{grid-template-columns:1fr}
+      .qr{width:140px;height:140px;margin:auto}
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .sma-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-
-    .sma-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    /* Tambahan efek kaca */
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      backdrop-filter: blur(3px);
-      opacity: 0.1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero p {
-      margin-bottom: 1.3rem;
-      font-weight: 500;
-      opacity: 0.95;
-    }
-
-    .hero .teacher-sign {
-      margin-top: 1rem;
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.3);
-      box-shadow: inset 0 0 10px rgba(255,255,255,0.2);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 18px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      border-top: 5px solid var(--primary);
-      animation: fadeIn 0.6s ease-out;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-    }
-
-    footer {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      padding: 3rem 2rem 1.5rem;
-      margin-top: 3rem;
-    }
-
-    /* Footer premium tambahan */
-    .footer-section .teacher-box {
-      margin-top: 1rem;
-      padding: 12px 15px;
-      border-radius: 12px;
-      background: rgba(0,0,0,0.15);
-      border-left: 4px solid var(--accent);
-      font-size: 0.92rem;
-      line-height: 1.5;
-      backdrop-filter: blur(2px);
-    }
-
-    .teacher-box i {
-      margin-right: 6px;
-    }
-
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.18);
-      transition: var(--transition);
-    }
+    /* accessibility focus */
+    a:focus, button:focus, input:focus{outline: 3px solid rgba(255,210,40,0.14);outline-offset:2px}
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-content">
-    <div class="logo-container">
-      <div class="sma-logo">
-        <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png">
-      </div>
-      <div class="logo-text">
-        <h1><i class="fas fa-flag"></i> Pendidikan Pancasila</h1>
-        <p>Kelas X - SMAN 1 Bangorejo</p>
-      </div>
-    </div>
-  </div>
-</header>
+  <div class="animated-gradient" aria-hidden="true"></div>
 
-<main>
-
-  <!-- HERO PREMIUM -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Menjiwai Nilai-Nilai Konstitusi</h2>
-      <p>Membangun karakter bangsa melalui pemahaman mendalam tentang Pancasila dan UUD 1945.</p>
-
-      <!-- DITAMBAHKAN: Identitas Guru -->
-      <div class="teacher-sign">
-        <strong>Guru Pengampu:</strong> Zuli Astutik, S.Pd.<br>
-        <i class="fas fa-envelope"></i> zuliastutik24@guru.sma.belajar.id
-      </div>
-
-      <div class="search-container" style="margin-top:1.4rem;">
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Cari materi (hierarki hukum, UUD 1945, dll)">
-          <button onclick="searchInModule()"><i class="fas fa-search"></i></button>
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Main Navigation">
+    <div class="nav-left">
+      <div class="brand" aria-hidden="false">
+        <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="Lambang SMAN 1 Bangorejo">
+        <div>
+          <h1>Pendidikan Pancasila</h1>
+          <p>Kelas X • SMAN 1 Bangorejo</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- KARTU-KARTU (TIDAK DIUBAH STRUKTURNYA) -->
-  <section class="mb-2">
-    <div class="section-title">
-      <h2><i class="fas fa-book-open"></i> Materi Pembelajaran</h2>
+    <div class="nav-actions" role="menubar" aria-label="Tindakan">
+      <button class="btn btn-ghost" id="btn-scroll" title="Lompat ke materi"><i class="fas fa-book-open"></i> Materi</button>
+      <button class="btn btn-ghost" id="btn-tugas" title="Lompat ke pengumpulan tugas"><i class="fas fa-tasks"></i> Tugas</button>
+      <button class="btn btn-primary" id="openProfile" title="Profil Guru (Zuli Astutik)"><i class="fas fa-user-tie"></i> Profil Guru</button>
+      <button class="btn btn-ghost" id="toggleTheme" title="Toggle theme"><i class="fas fa-sun"></i></button>
     </div>
+  </nav>
 
-    <div class="cards">
+  <!-- HERO -->
+  <header class="hero-section" role="banner" aria-labelledby="hero-title">
+    <div class="hero-left" >
+      <h2 id="hero-title">Menjiwai Nilai–Nilai Konstitusi dan Pancasila</h2>
+      <p>Membangun karakter bangsa melalui pemahaman mendalam tentang Pancasila, UUD 1945, dan sejarah konstitusi.</p>
 
-      <!-- LKPD -->
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
-        <h3>Lembar Kerja (LKPD)</h3>
-        <p>Download lembar kerja peserta didik (LKPD) dan unggah melalui Google Form.</p>
-        <a href="lkpd_pancasila.pdf" class="btn btn-full" target="_blank">Download <i class="fas fa-download"></i></a>
+      <div class="search-gradient" role="search" aria-label="Cari materi">
+        <input id="searchInput" type="search" placeholder="Cari materi — mis. 'UUD 1945', 'Bhinneka'..." aria-label="Masukkan kata kunci pencarian">
+        <button aria-label="Cari" id="btnSearch"><i class="fas fa-search"></i></button>
       </div>
 
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-file-alt"></i></div>
-        <h3>Modul Ajar</h3>
-        <p>Modul pembelajaran lengkap untuk memahami Pancasila & UUD 1945.</p>
-        <a href="modul-pancasila.html" class="btn btn-full" target="_blank">Buka Modul <i class="fas fa-external-link-alt"></i></a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-landmark"></i></div>
-        <h3>Materi UUD 1945</h3>
-        <p>Pelajari isi dan makna Undang-Undang Dasar 1945.</p>
-        <a href="materi-uud-pancasila.html" class="btn btn-full" target="_blank">Pelajari</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-history"></i></div>
-        <h3>Sejarah Konstitusi</h3>
-        <p>Mengenal perjalanan sejarah konstitusi Indonesia.</p>
-        <a href="sejarah-konstitusi.pdf" class="btn btn-full" target="_blank">Buka</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-handshake"></i></div>
-        <h3>Bhinneka Tunggal Ika</h3>
-        <p>Memahami keberagaman sebagai kekuatan bangsa.</p>
-        <a href="bhinneka-tunggal-ika.html" class="btn btn-full" target="_blank">Pelajari</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-flag"></i></div>
-        <h3>NKRI</h3>
-        <p>Peran warga negara dan nilai-nilai kebangsaan.</p>
-        <a href="nkri.html" class="btn btn-full" target="_blank">Pelajari</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PENGUMPULAN TUGAS (ASLI • TIDAK DIUBAH) -->
-  <section class="tugas-section">
-    <div class="tugas-header">
-      <h2><i class="fas fa-tasks"></i> Pengumpulan Tugas</h2>
-      <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn" target="_blank">
-        <i class="fab fa-google"></i> Kumpulkan Tugas
-      </a>
-    </div>
-    
-    <p>Kerjakan LKPD, lalu unggah hasilnya melalui Google Form.</p>
-
-    <div style="text-align:center;margin:1.5rem 0;">
-      <img 
-        src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/UpZXSCgKnxPbpvph9"
-        style="border-radius:10px;border:1px solid #eee;">
-      <p style="font-size:0.9rem;color:var(--gray)">Scan untuk membuka form</p>
-    </div>
-
-    <div class="iframe-container">
-      <iframe 
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false">
-      </iframe>
-    </div>
-
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>SMAN 1 Bangorejo</h3>
-      <p>Jalan Bhayangkara No. 67, Kebondalem, Bangorejo</p>
-
-      <!-- DITAMBAHKAN: guru di footer -->
-      <div class="teacher-box">
-        <strong>Guru Mapel:</strong><br>
-        <i class="fas fa-user-tie"></i> Zuli Astutik, S.Pd.<br>
-        <i class="fas fa-envelope"></i> zuliastutik24@guru.sma.belajar.id
+      <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="location.href='modul-pancasila.html'"><i class="fas fa-file-lines"></i> Buka Modul</button>
+        <a class="btn btn-ghost" href="lkpd_pancasila.pdf" target="_blank" rel="noopener"><i class="fas fa-download"></i> Unduh LKPD</a>
       </div>
     </div>
 
-    <div class="footer-section">
-      <h3>Link Cepat</h3>
-      <p><a href="modul-pancasila.html"><i class="fas fa-arrow-right"></i> Modul Ajar</a></p>
-      <p><a href="materi-uud-pancasila.html"><i class="fas fa-arrow-right"></i> Materi UUD 1945</a></p>
-      <p><a href="lkpd_pancasila.pdf"><i class="fas fa-arrow-right"></i> LKPD</a></p>
-      <p><a href="https://forms.gle/UpZXSCgKnxPbpvph9"><i class="fas fa-arrow-right"></i> Kumpulkan Tugas</a></p>
+    <aside class="hero-right" aria-label="Profil guru singkat">
+      <div class="floating-logo" aria-hidden="true">
+        <img src="https://i.ibb.co.com/wZzKGnDX/SMAN1-Bangorejo-emblem.png" alt="">
+      </div>
+
+      <div class="teacher-photo" aria-hidden="false">
+        <!-- Jika punya foto guru, ganti src di bawah -->
+        <img src="https://i.ibb.co/yVqJZ1P/placeholder-teacher.png" alt="Foto Guru Zuli Astutik" onerror="this.src='https://i.ibb.co/yVqJZ1P/placeholder-teacher.png'">
+      </div>
+
+      <div class="teacher-meta">
+        <h4>Zuli Astutik, S.Pd.</h4>
+        <p><i class="fas fa-envelope"></i> zuliastutik24@guru.sma.belajar.id</p>
+        <div class="contact-row">
+          <button class="btn btn-ghost" id="openProfile2"><i class="fas fa-id-card"></i> Lihat Profil</button>
+          <a href="https://forms.gle/UpZXSCgKnxPbpvph9" class="btn btn-ghost" target="_blank" rel="noopener"><i class="fab fa-google"></i> Kumpulkan Tugas</a>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="content" id="main-content" role="main">
+
+    <section id="materi" aria-labelledby="materi-title">
+      <h2 id="materi-title" style="margin:0 0 12px 0;font-size:1.25rem;">Materi Pembelajaran</h2>
+
+      <div class="grid" role="list" aria-label="List materi utama">
+
+        <!-- Card 1: LKPD -->
+        <article class="card-lg" role="listitem" aria-labelledby="lkpd-title">
+          <h3 id="lkpd-title"><i class="fas fa-file-pdf"></i> Lembar Kerja (LKPD)</h3>
+          <p>Kerjakan LKPD di rumah atau di kelas, lalu unggah hasilnya melalui Google Form yang tersedia.</p>
+          <div class="card-actions">
+            <a class="btn btn-primary btn-sm" href="lkpd_pancasila.pdf" target="_blank" rel="noopener" aria-label="Unduh LKPD">Unduh PDF</a>
+            <a class="btn btn-ghost btn-sm" href="https://forms.gle/UpZXSCgKnxPbpvph9" target="_blank" rel="noopener">Unggah Hasil</a>
+          </div>
+        </article>
+
+        <!-- Card 2: Modul -->
+        <article class="card-lg" role="listitem" aria-labelledby="modul-title">
+          <h3 id="modul-title"><i class="fas fa-book-open"></i> Modul Ajar</h3>
+          <p>Modul lengkap untuk pembelajaran Pancasila dan UUD 1945, direkomendasikan untuk persiapan refleksi dan penilaian.</p>
+          <div class="card-actions">
+            <a class="btn btn-primary btn-sm" href="modul-pancasila.html" target="_blank" rel="noopener">Buka Modul</a>
+          </div>
+        </article>
+
+        <!-- Card 3: UUD 1945 -->
+        <article class="card-lg" role="listitem" aria-labelledby="uud-title">
+          <h3 id="uud-title"><i class="fas fa-landmark"></i> Materi UUD 1945</h3>
+          <p>Pendalaman pasal-pasal penting, makna amandemen, dan hubungan konstitusi dengan nilai Pancasila.</p>
+          <div class="card-actions">
+            <a class="btn btn-ghost btn-sm" href="materi-uud-pancasila.html" target="_blank" rel="noopener">Pelajari</a>
+          </div>
+        </article>
+
+        <!-- Card 4: Sejarah Konstitusi -->
+        <article class="card-lg" role="listitem" aria-labelledby="sejarah-title">
+          <h3 id="sejarah-title"><i class="fas fa-history"></i> Sejarah Konstitusi</h3>
+          <p>Perjalanan konstitusi Indonesia dari masa penjajahan hingga amandemen UUD 1945.</p>
+          <div class="card-actions">
+            <a class="btn btn-ghost btn-sm" href="sejarah-konstitusi.pdf" target="_blank" rel="noopener">Baca</a>
+          </div>
+        </article>
+
+        <!-- Card 5: Bhinneka -->
+        <article class="card-lg" role="listitem" aria-labelledby="bhinneka-title">
+          <h3 id="bhinneka-title"><i class="fas fa-handshake"></i> Bhinneka Tunggal Ika</h3>
+          <p>Memahami keragaman sebagai kekuatan; aktivitas kelompok & studi kasus tersedia di modul.</p>
+          <div class="card-actions">
+            <a class="btn btn-ghost btn-sm" href="bhinneka-tunggal-ika.html" target="_blank" rel="noopener">Pelajari</a>
+          </div>
+        </article>
+
+        <!-- Card 6: NKRI -->
+        <article class="card-lg" role="listitem" aria-labelledby="nkri-title">
+          <h3 id="nkri-title"><i class="fas fa-flag"></i> Negara Kesatuan Republik Indonesia</h3>
+          <p>Peran warga negara, hak & kewajiban, dan nilai Pancasila dalam pembangunan nasional.</p>
+          <div class="card-actions">
+            <a class="btn btn-ghost btn-sm" href="nkri.html" target="_blank" rel="noopener">Pelajari</a>
+          </div>
+        </article>
+
+      </div> <!-- end grid -->
+    </section>
+
+    <!-- TUGAS -->
+    <section id="tugas" class="tugas" aria-labelledby="tugas-title">
+      <h3 id="tugas-title">Pengumpulan Tugas</h3>
+      <p>Kerjakan LKPD lalu unggah hasilnya lewat Google Form. Gunakan QR atau link di bawah.</p>
+
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:0.8rem;">
+        <a class="btn btn-primary" href="https://forms.gle/UpZXSCgKnxPbpvph9" target="_blank" rel="noopener"><i class="fab fa-google"></i> Buka Google Form</a>
+        <button class="btn btn-ghost" id="showQR" aria-controls="qr-area"><i class="fas fa-qrcode"></i> Tampilkan QR</button>
+      </div>
+
+      <div id="qr-area" style="margin-top:1rem;display:none">
+        <div class="iframe-wrap">
+          <iframe src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://forms.gle/UpZXSCgKnxPbpvph9" title="QR Form" style="width:100%;height:260px;border:0;background:#fff"></iframe>
+        </div>
+      </div>
+
+      <div class="iframe-wrap" style="margin-top:1rem;">
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgpB5UCf7IYqwYCbNj7H5gxglC18Lj_dVlL4xOy6ZTJqlcD8JZV_pi8KUQwR0DIfsjfs6byOwQhUni/pubhtml?widget=true&headers=false" title="Data Pengumpulan" style="width:100%;min-height:360px;border:0"></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER ULTRA PREMIUM -->
+  <footer role="contentinfo" aria-label="Footer Sekolah">
+    <div class="footer-grid">
+      <div class="footer-card">
+        <h4>SMAN 1 Bangorejo</h4>
+        <p>Jalan Bhayangkara No. 67, Kebondalem, Bangorejo, Banyuwangi, Jawa Timur</p>
+        <p><i class="fas fa-phone"></i> Tel./Faks: 0333-713297</p>
+      </div>
+
+      <div class="footer-card">
+        <h4>Guru Pengampu</h4>
+        <p><strong>Zuli Astutik, S.Pd.</strong></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:zuliastutik24@guru.sma.belajar.id" style="color:inherit;text-decoration:underline">zuliastutik24@guru.sma.belajar.id</a></p>
+        <p style="margin-top:6px">Profil lengkap dapat dilihat pada modal profil.</p>
+      </div>
+
+      <div class="footer-card">
+        <h4>Link Cepat</h4>
+        <p><a href="modul-pancasila.html"><i class="fas fa-arrow-right"></i> Modul Ajar</a></p>
+        <p><a href="materi-uud-pancasila.html"><i class="fas fa-arrow-right"></i> Materi UUD 1945</a></p>
+        <p><a href="lkpd_pancasila.pdf"><i class="fas fa-arrow-right"></i> LKPD</a></p>
+        <p><a href="https://forms.gle/UpZXSCgKnxPbpvph9"><i class="fas fa-arrow-right"></i> Kumpulkan Tugas</a></p>
+      </div>
+    </div>
+
+    <div class="footer-credits">
+      © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X — Dikelola oleh Zuli Astutik, S.Pd.
+    </div>
+  </footer>
+
+  <!-- PROFILE MODAL (ULTRA) -->
+  <div id="profileModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-card" role="document">
+      <button class="modal-close" id="closeModal" aria-label="Tutup"><i class="fas fa-times"></i></button>
+      <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+        <div style="flex:0 0 200px;max-width:200px">
+          <div style="background:linear-gradient(180deg,#fff,#eee);padding:12px;border-radius:12px;display:flex;align-items:center;justify-content:center">
+            <!-- QR (link tugas) -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=https://forms.gle/UpZXSCgKnxPbpvph9" alt="QR Tugas" style="width:170px;height:170px">
+          </div>
+          <div style="margin-top:10px;text-align:center">
+            <button class="btn btn-primary" onclick="location.href='https://forms.gle/UpZXSCgKnxPbpvph9'">Buka Form Tugas</button>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <h3 id="modalTitle" style="margin:0 0 6px 0">Zuli Astutik, S.Pd.</h3>
+          <p style="margin:0 0 10px 0;opacity:0.95">Guru Pengampu — Pendidikan Pancasila • SMAN 1 Bangorejo</p>
+
+          <dl style="display:grid;grid-template-columns:120px 1fr;gap:6px 12px">
+            <dt style="opacity:0.85">Email</dt>
+            <dd><a href="mailto:zuliastutik24@guru.sma.belajar.id" style="color:inherit">zuliastutik24@guru.sma.belajar.id</a></dd>
+            <dt style="opacity:0.85">Jabatan</dt>
+            <dd>Guru Mata Pelajaran — Pendidikan Pancasila</dd>
+            <dt style="opacity:0.85">Telepon</dt>
+            <dd>0333-713297 (Sekolah)</dd>
+            <dt style="opacity:0.85">Tautan</dt>
+            <dd><a href="modul-pancasila.html" target="_blank" rel="noopener">Modul Ajar</a></dd>
+          </dl>
+
+          <div style="margin-top:12px">
+            <p style="opacity:0.9">Profil singkat: <br> Berpengalaman mengajar Pendidikan Pancasila dengan pendekatan kontekstual dan proyek, fokus pada pembentukan karakter dan pemahaman konstitusi.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="copyright">
-    © 2025 SMAN 1 Bangorejo • Pendidikan Pancasila Kelas X
-  </div>
-</footer>
+  <!-- ======================
+       SCRIPTS (INTERAKSI)
+       ====================== -->
+  <script>
+    (function(){
+      // Elements
+      const toggleThemeBtn = document.getElementById('toggleTheme');
+      const htmlRoot = document.getElementById('html-root');
+      const openProfile = document.getElementById('openProfile');
+      const openProfile2 = document.getElementById('openProfile2');
+      const closeModal = document.getElementById('closeModal');
+      const profileModal = document.getElementById('profileModal');
+      const openProfileBtns = [openProfile, openProfile2];
+      const btnSearch = document.getElementById('btnSearch');
+      const searchInput = document.getElementById('searchInput');
+      const btnScroll = document.getElementById('btn-scroll');
+      const btnTugas = document.getElementById('btn-tugas');
+      const showQR = document.getElementById('showQR');
+      const qrArea = document.getElementById('qr-area');
 
-<button class="dark-mode-toggle" id="darkModeToggle">
-  <i class="fas fa-moon"></i>
-</button>
+      // initial theme (prefers-color-scheme)
+      const saved = localStorage.getItem('site-theme');
+      if(saved === 'light') document.documentElement.classList.add('light');
+      if(saved === 'dark') document.documentElement.classList.remove('light');
 
-<script>
-  const toggleButton = document.getElementById('darkModeToggle');
-  const htmlRoot = document.getElementById('html-root');
-  const userPref = localStorage.getItem('darkMode');
+      toggleThemeBtn.addEventListener('click', () => {
+        const isLight = document.documentElement.classList.toggle('light');
+        localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+        toggleThemeBtn.innerHTML = isLight ? '<i class=\"fas fa-moon\"></i>' : '<i class=\"fas fa-sun\"></i>';
+      });
 
-  if (userPref === 'enabled') {
-    htmlRoot.classList.add('dark-mode');
-    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-  }
+      // Modal open
+      openProfileBtns.forEach(btn => {
+        if(!btn) return;
+        btn.addEventListener('click', ()=> {
+          profileModal.classList.add('open');
+          profileModal.setAttribute('aria-hidden','false');
+          document.body.style.overflow = 'hidden';
+        });
+      });
 
-  toggleButton.addEventListener('click', () => {
-    htmlRoot.classList.toggle('dark-mode');
-    const isDark = htmlRoot.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-    toggleButton.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-  });
+      // close modal
+      closeModal.addEventListener('click', closeProfile);
+      profileModal.addEventListener('click', (e) => {
+        if(e.target === profileModal) closeProfile();
+      });
+      function closeProfile(){
+        profileModal.classList.remove('open');
+        profileModal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
 
-  function searchInModule() {
-    const query = document.getElementById('searchInput').value.trim();
-    if (!query) return alert('Masukkan kata kunci!');
-    window.open('modul-pancasila.html', '_blank');
-  }
-</script>
+      // search handler
+      btnSearch.addEventListener('click', ()=> {
+        const q = (searchInput.value || '').trim();
+        if(!q) return alert('Masukkan kata kunci untuk pencarian.');
+        // local search guidance
+        alert('Fitur pencarian lokal: buka "Modul Ajar" lalu gunakan Ctrl+F untuk mencari: "' + q + '"');
+        window.open('modul-pancasila.html', '_blank');
+      });
+
+      // scroll shortcuts
+      btnScroll.addEventListener('click', ()=> document.getElementById('materi').scrollIntoView({behavior:'smooth'}));
+      btnTugas.addEventListener('click', ()=> document.getElementById('tugas').scrollIntoView({behavior:'smooth'}));
+
+      // QR toggle
+      showQR.addEventListener('click', ()=> {
+        if(qrArea.style.display === 'none' || !qrArea.style.display) {
+          qrArea.style.display = 'block';
+          showQR.innerHTML = '<i class=\"fas fa-eye-slash\"></i> Sembunyikan QR';
+        } else {
+          qrArea.style.display = 'none';
+          showQR.innerHTML = '<i class=\"fas fa-qrcode\"></i> Tampilkan QR';
+        }
+      });
+
+      // small accessibility improvement: skip to main (keyboard)
+      const skip = document.createElement('a');
+      skip.href='#main-content';
+      skip.innerText='Lewati ke konten';
+      skip.style.position='absolute';
+      skip.style.left='-999px';
+      skip.style.top='auto';
+      skip.style.width='1px';
+      skip.style.height='1px';
+      skip.style.overflow='hidden';
+      skip.style.zIndex='9999';
+      skip.addEventListener('focus', ()=> {
+        skip.style.left='8px';skip.style.top='8px';skip.style.width='auto';skip.style.height='auto';
+        skip.style.background='#fff';skip.style.color='#000';skip.style.padding='8px';skip.style.borderRadius='6px';
+      });
+      skip.addEventListener('blur', ()=> {
+        skip.style.left='-999px';skip.style.width='1px';skip.style.height='1px';skip.style.background='none';
+      });
+      document.body.prepend(skip);
+
+      // small parallax on mouse move (hero floating-logo)
+      const floating = document.querySelector('.floating-logo');
+      document.addEventListener('mousemove', e => {
+        const w = window.innerWidth; const h = window.innerHeight;
+        const nx = (e.clientX - w/2)/w*12;
+        const ny = (e.clientY - h/2)/h*12;
+        if(floating) floating.style.transform = `translate3d(${nx}px, ${Math.min(-6, ny)}px, 0) rotate(${nx/6}deg)`;
+      });
+
+      // keyboard: ESC closes modal
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeProfile();
+      });
+
+    })();
+  </script>
 
 </body>
 </html>
